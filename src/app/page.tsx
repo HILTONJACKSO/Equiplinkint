@@ -42,14 +42,16 @@ export default function Home() {
         <section className="relative w-full min-h-[90vh] flex flex-col pt-16 pb-32 z-20 -mt-16">
           <div className="absolute inset-0 overflow-hidden">
             <Image 
-              src="/images/hero_equipment_clean.png"
-              alt="Excavator at Sunset"
+              src="/images/hero_excavator_right.png"
+              alt="Excavator Hero"
               fill
-              className="object-cover object-center"
+              className="object-cover object-right lg:object-[85%_center]"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220] via-[#0B1220]/60 to-transparent opacity-90" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-[#0B1220]/70 opacity-90" />
+            {/* Deep dark gradient on the left side to make text pop, fading out to the right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220] via-[#0B1220]/80 to-transparent w-full md:w-3/4 lg:w-2/3" />
+            {/* Bottom gradient to smoothly blend into the search bar */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-transparent opacity-90" />
           </div>
 
           <div className="max-w-7xl mx-auto px-4 w-full relative z-10 flex-1 flex flex-col justify-center mt-20">
