@@ -39,8 +39,8 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         {/* HERO SECTION */}
-        <section className="relative w-full min-h-[90vh] flex flex-col pt-16 pb-32 z-20 -mt-16">
-          <div className="absolute inset-0 overflow-hidden">
+        <section className="relative w-full min-h-[50vh] flex flex-col pt-16 pb-32 z-20 -mt-16">
+          <div className="absolute inset-0 overflow-hidden bg-[#0B1220]">
             <Image 
               src="/images/hero_excavator_right.png"
               alt="Excavator Hero"
