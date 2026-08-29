@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Tractor, Mail, MapPin, PhoneCall } from 'lucide-react';
 
@@ -11,12 +12,7 @@ export function Footer() {
         <div className="flex flex-col xl:flex-row items-start justify-between gap-12 pb-12 md:pb-16 border-b border-[#132238]">
           <div className="max-w-md">
             <Link href="/" className="group flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center">
-                <Tractor className="w-6 h-6 text-[#0B1220]" />
-              </div>
-              <span className="font-heading font-black text-3xl tracking-tight text-white">
-                Equip<span className="text-amber-500">link</span>
-              </span>
+              <Image src="/images/logo.jpg" alt="Equiplink Logo" width={220} height={70} className="object-contain group-hover:opacity-90 transition-opacity bg-white p-2 rounded-xl" />
             </Link>
             <p className="text-slate-400 leading-relaxed text-lg mb-8">
               Liberia's premier network for heavy machinery rental, specialized transport, and comprehensive maintenance support.

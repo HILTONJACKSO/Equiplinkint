@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Menu, Search, Tractor, User, PhoneCall } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
@@ -11,12 +12,7 @@ export function Navbar() {
         <div className="flex items-center gap-6 xl:gap-12">
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center group-hover:scale-105 transition-transform shadow-lg shadow-amber-500/20">
-              <Tractor className="w-6 h-6 text-[#0B1220]" />
-            </div>
-            <span className="font-heading font-black text-2xl tracking-tight text-white">
-              Equip<span className="text-amber-500">link</span>
-            </span>
+            <Image src="/images/logo.jpg" alt="Equiplink Logo" width={220} height={70} className="object-contain group-hover:opacity-90 transition-opacity" priority />
           </Link>
           
           {/* Desktop Nav */}
