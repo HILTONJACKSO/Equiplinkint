@@ -42,7 +42,7 @@ export default function Home() {
         <section className="relative w-full min-h-[90vh] flex flex-col pt-16 pb-32 z-20 -mt-16">
           <div className="absolute inset-0 overflow-hidden">
             <Image 
-              src="/images/hero_excavator_sunset.png"
+              src="/images/hero_equipment_clean.png"
               alt="Excavator at Sunset"
               fill
               className="object-cover object-center"
@@ -504,6 +504,40 @@ export default function Home() {
                   </div>
                 </AnimatedStep>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* EQUIPMENT GALLERY SECTION */}
+        <section className="py-24 bg-white border-t border-[#E2E8F0]">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <div className="text-sm font-bold text-amber-500 tracking-widest uppercase mb-4">Our Fleet</div>
+              <h2 className="text-3xl md:text-5xl font-bold font-heading text-[#132238] mb-6">Equipment Gallery</h2>
+              <p className="text-[#64748B] text-lg">Take a look at some of the heavy-duty machinery ready for your next big project.</p>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[250px]">
+              <div className="relative group rounded-2xl overflow-hidden md:col-span-2 md:row-span-2">
+                <Image src="/images/media__1788003157001.jpg" alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+              </div>
+              <div className="relative group rounded-2xl overflow-hidden">
+                <Image src="/images/media__1788003157015.jpg" alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+              </div>
+              <div className="relative group rounded-2xl overflow-hidden">
+                <Image src="/images/media__1788003157033.jpg" alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+              </div>
+              <div className="relative group rounded-2xl overflow-hidden">
+                <Image src="/images/media__1788003157055.jpg" alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+              </div>
+              <div className="relative group rounded-2xl overflow-hidden md:col-span-2">
+                <Image src="/images/media__1788003157072.jpg" alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+              </div>
             </div>
           </div>
         </section>
