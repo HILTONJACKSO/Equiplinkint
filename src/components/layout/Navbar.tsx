@@ -12,7 +12,7 @@ export function Navbar() {
         <div className="flex items-center gap-6 xl:gap-12">
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-3">
-            <Image src="/images/logo.jpg" alt="Equiplink Logo" width={220} height={70} className="object-contain group-hover:opacity-90 transition-opacity" priority />
+            <Image src="/images/logo.jpg" alt="Equiplink Logo" width={200} height={80} className="w-auto h-14 md:h-16 object-contain rounded-lg shadow-sm" priority />
           </Link>
           
           {/* Desktop Nav */}

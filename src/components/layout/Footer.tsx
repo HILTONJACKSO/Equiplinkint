@@ -12,7 +12,7 @@ export function Footer() {
         <div className="flex flex-col xl:flex-row items-start justify-between gap-12 pb-12 md:pb-16 border-b border-[#132238]">
           <div className="max-w-md">
             <Link href="/" className="group flex items-center gap-3 mb-6">
-              <Image src="/images/logo.jpg" alt="Equiplink Logo" width={220} height={70} className="object-contain group-hover:opacity-90 transition-opacity bg-white p-2 rounded-xl" />
+              <Image src="/images/logo.jpg" alt="Equiplink Logo" width={200} height={80} className="w-auto h-16 object-contain rounded-xl shadow-sm bg-white" />
             </Link>
             <p className="text-slate-400 leading-relaxed text-lg mb-8">
               Liberia's premier network for heavy machinery rental, specialized transport, and comprehensive maintenance support.
