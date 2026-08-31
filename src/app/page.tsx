@@ -85,59 +85,77 @@ export default function Home() {
 
           {/* FLOATING SEARCH BAR */}
           <div className="absolute bottom-0 left-0 right-0 translate-y-1/2 z-20 px-4">
-            <div className="max-w-6xl mx-auto bg-white rounded-2xl p-2 shadow-2xl flex flex-col md:flex-row items-stretch divide-y md:divide-y-0 md:divide-x divide-gray-200 text-black">
+            <form action="/equipment" method="GET" className="max-w-6xl mx-auto bg-white rounded-2xl p-2 shadow-2xl flex flex-col md:flex-row items-stretch divide-y md:divide-y-0 md:divide-x divide-gray-200 text-black">
               
-              <div className="flex-1 p-3 md:p-4 w-full flex items-center gap-3 md:gap-4 min-w-0">
+              <div className="flex-1 p-3 md:p-4 w-full flex items-center gap-3 md:gap-4 min-w-0 group hover:bg-gray-50 transition-colors rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none">
                 <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
                   <svg className="w-5 h-5 text-gray-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="text-xs font-bold text-gray-900 mb-0.5 truncate">What do you need?</div>
-                  <div className="text-sm text-gray-500 font-medium truncate">Select equipment or service</div>
+                  <select name="category" className="w-full bg-transparent outline-none text-sm text-gray-500 font-medium cursor-pointer appearance-none truncate">
+                    <option value="">Select equipment or service</option>
+                    <option value="excavator">Excavators</option>
+                    <option value="bulldozer">Bulldozers</option>
+                    <option value="loader">Loaders</option>
+                    <option value="crane">Cranes</option>
+                    <option value="transport">Lowbed Transport</option>
+                  </select>
                 </div>
-                <ArrowDown className="w-4 h-4 text-gray-400 shrink-0 ml-auto" />
+                <ArrowDown className="w-4 h-4 text-gray-400 shrink-0 ml-auto pointer-events-none" />
               </div>
 
-              <div className="flex-1 p-3 md:p-4 w-full flex items-center gap-3 md:gap-4 min-w-0">
+              <div className="flex-1 p-3 md:p-4 w-full flex items-center gap-3 md:gap-4 min-w-0 group hover:bg-gray-50 transition-colors">
                 <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-gray-500 shrink-0" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="text-xs font-bold text-gray-900 mb-0.5 truncate">Where?</div>
-                  <div className="text-sm text-gray-500 font-medium truncate">Monrovia, Liberia</div>
+                  <select name="location" className="w-full bg-transparent outline-none text-sm text-gray-500 font-medium cursor-pointer appearance-none truncate">
+                    <option value="monrovia">Monrovia, Liberia</option>
+                    <option value="buchanan">Buchanan</option>
+                    <option value="gbarnba">Gbarnga</option>
+                    <option value="harbel">Harbel</option>
+                    <option value="kakata">Kakata</option>
+                  </select>
                 </div>
-                <ArrowDown className="w-4 h-4 text-gray-400 shrink-0 ml-auto" />
+                <ArrowDown className="w-4 h-4 text-gray-400 shrink-0 ml-auto pointer-events-none" />
               </div>
 
-              <div className="flex-1 p-3 md:p-4 w-full flex items-center gap-3 md:gap-4 min-w-0">
+              <div className="flex-1 p-3 md:p-4 w-full flex items-center gap-3 md:gap-4 min-w-0 group hover:bg-gray-50 transition-colors">
                 <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
                   <Calendar className="w-5 h-5 text-gray-500 shrink-0" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="text-xs font-bold text-gray-900 mb-0.5 truncate">When?</div>
-                  <div className="text-sm text-gray-500 font-medium truncate">Select date</div>
+                  <input type="date" name="date" className="w-full bg-transparent outline-none text-sm text-gray-500 font-medium cursor-pointer appearance-none truncate uppercase" />
                 </div>
-                <ArrowDown className="w-4 h-4 text-gray-400 shrink-0 ml-auto" />
               </div>
 
-              <div className="flex-1 p-3 md:p-4 w-full flex items-center gap-3 md:gap-4 min-w-0">
+              <div className="flex-1 p-3 md:p-4 w-full flex items-center gap-3 md:gap-4 min-w-0 group hover:bg-gray-50 transition-colors">
                 <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
                   <ClockIcon className="w-5 h-5 text-gray-500 shrink-0" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="text-xs font-bold text-gray-900 mb-0.5 truncate">Duration</div>
-                  <div className="text-sm text-gray-500 font-medium truncate">1 Day</div>
+                  <select name="duration" className="w-full bg-transparent outline-none text-sm text-gray-500 font-medium cursor-pointer appearance-none truncate">
+                    <option value="1">1 Day</option>
+                    <option value="3">3 Days</option>
+                    <option value="7">1 Week</option>
+                    <option value="30">1 Month</option>
+                    <option value="custom">Custom Duration</option>
+                  </select>
                 </div>
-                <ArrowDown className="w-4 h-4 text-gray-400 shrink-0 ml-auto" />
+                <ArrowDown className="w-4 h-4 text-gray-400 shrink-0 ml-auto pointer-events-none" />
               </div>
 
               <div className="p-2 w-full md:w-auto flex items-center justify-center shrink-0">
-                <Button className="w-full md:w-auto bg-amber-500 hover:bg-amber-600 text-black font-bold h-14 px-6 md:px-8 rounded-xl flex items-center justify-center gap-2">
+                <Button type="submit" className="w-full md:w-auto bg-amber-500 hover:bg-amber-600 text-black font-bold h-14 px-6 md:px-8 rounded-xl flex items-center justify-center gap-2">
                   <Search className="w-5 h-5 shrink-0" /> <span className="truncate">Search</span>
                 </Button>
               </div>
 
-            </div>
+            </form>
           </div>
         </section>
 
