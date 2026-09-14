@@ -119,17 +119,17 @@ export default function AdminDashboard() {
   );
 
   return (
-    <div className="flex h-screen bg-background overflow-hidden">
+    <div className="flex h-screen bg-slate-50 font-sans overflow-hidden">
       {/* Desktop Sidebar - dark navy */}
-      <aside className="hidden lg:flex flex-col w-64 shrink-0 bg-[#0B1220] h-full">
+      <aside className="hidden lg:flex flex-col w-64 shrink-0 bg-[#0B1220] h-full border-r border-slate-800">
         <Sidebar />
       </aside>
 
       {/* Mobile Sidebar */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="absolute inset-0 bg-black/60" onClick={() => setSidebarOpen(false)} />
-          <aside className="absolute left-0 top-0 bottom-0 w-64 bg-[#0B1220] flex flex-col">
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSidebarOpen(false)} />
+          <aside className="absolute left-0 top-0 bottom-0 w-64 bg-[#0B1220] flex flex-col border-r border-slate-800 shadow-2xl">
             <Sidebar />
           </aside>
         </div>
@@ -138,44 +138,46 @@ export default function AdminDashboard() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         {/* Header */}
-        <header className="sticky top-0 z-10 bg-white/95 backdrop-blur border-b border-border px-4 md:px-8 h-16 flex items-center justify-between shrink-0">
+        <header className="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-slate-200 px-4 md:px-8 h-16 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setSidebarOpen(true)}>
+            <Button variant="ghost" size="icon" className="lg:hidden text-slate-600" onClick={() => setSidebarOpen(true)}>
               <Menu className="h-5 w-5" />
             </Button>
             <div>
-              <h1 className="font-heading font-bold text-xl text-primary">Platform Overview</h1>
-              <p className="text-xs text-muted-foreground hidden sm:block">Thursday, August 20, 2026</p>
+              <h1 className="font-sans font-bold text-xl text-slate-900">Platform Overview</h1>
+              <p className="text-xs text-slate-500 hidden sm:block">Thursday, August 20, 2026</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <div className="relative hidden md:block">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input placeholder="Search anything..." className="pl-9 w-64 h-9 bg-muted border-0" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+              <Input placeholder="Search anything..." className="pl-9 w-64 h-9 bg-slate-100 border-transparent focus:bg-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all rounded-lg" />
             </div>
-            <Button variant="ghost" size="icon" className="relative">
+            <Button variant="ghost" size="icon" className="relative text-slate-600 hover:bg-slate-100 rounded-full">
               <Bell className="h-5 w-5" />
-              <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-red-500" />
+              <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white" />
             </Button>
           </div>
         </header>
 
         {/* Dashboard Content */}
-        <main className="flex-1 px-4 md:px-8 py-6 space-y-8">
+        <main className="flex-1 px-4 md:px-8 py-8 space-y-8 max-w-7xl mx-auto w-full">
 
           {/* KPI Grid */}
           <section>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {KPI_STATS.map((kpi) => (
-                <div key={kpi.label} className="bg-white rounded-2xl border border-border p-5 space-y-2">
+                <div key={kpi.label} className="bg-white rounded-xl border border-slate-200 shadow-sm p-5 space-y-3 hover:shadow-md transition-shadow">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{kpi.label}</span>
-                    <kpi.icon className="h-4 w-4 text-muted-foreground/50" />
+                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">{kpi.label}</span>
+                    <div className="p-2 bg-slate-50 rounded-lg">
+                      <kpi.icon className="h-4 w-4 text-slate-400" />
+                    </div>
                   </div>
-                  <div className="text-2xl font-bold font-heading text-primary">{kpi.value}</div>
-                  <div className={`flex items-center gap-1 text-xs font-medium ${kpi.positive ? 'text-emerald-600' : 'text-red-500'}`}>
+                  <div className="text-2xl font-bold font-sans text-slate-900">{kpi.value}</div>
+                  <div className={`flex items-center gap-1.5 text-xs font-semibold ${kpi.positive ? 'text-emerald-600 bg-emerald-50' : 'text-red-600 bg-red-50'} w-fit px-2 py-0.5 rounded-full`}>
                     {kpi.positive ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
-                    {kpi.change} this month
+                    {kpi.change}
                   </div>
                 </div>
               ))}
@@ -198,31 +200,31 @@ export default function AdminDashboard() {
           <div className="grid lg:grid-cols-2 gap-6">
 
             {/* Pending Verifications */}
-            <section className="bg-white rounded-2xl border border-border">
-              <div className="flex items-center justify-between px-6 py-5 border-b border-border/50">
-                <h2 className="font-heading font-bold text-lg text-primary flex items-center gap-2">
-                  <ShieldCheck className="h-5 w-5 text-amber-500" /> Pending Verifications
+            <section className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+              <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100 bg-slate-50/50">
+                <h2 className="font-sans font-bold text-base text-slate-900 flex items-center gap-2.5">
+                  <ShieldCheck className="h-4 w-4 text-indigo-500" /> Pending Verifications
                 </h2>
-                <Link href="/admin/verification" className="text-sm text-amber-600 hover:text-amber-700 font-medium">View All</Link>
+                <Link href="/admin/verification" className="text-xs font-semibold text-indigo-600 hover:text-indigo-700">View All</Link>
               </div>
-              <div className="divide-y divide-border/50">
+              <div className="divide-y divide-slate-100 flex-1">
                 {PENDING_VERIFICATIONS.map((v) => (
-                  <div key={v.id} className="px-6 py-4 flex items-center gap-4 hover:bg-muted/30 transition-colors">
-                    <div className="h-10 w-10 rounded-xl bg-muted flex items-center justify-center text-primary font-bold shrink-0">
+                  <div key={v.id} className="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors">
+                    <div className="h-10 w-10 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-700 font-bold shrink-0">
                       {v.name.charAt(0)}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-primary text-sm truncate">{v.name}</p>
-                      <p className="text-xs text-muted-foreground">{v.type} · {v.docs} docs · {v.submitted}</p>
+                      <p className="font-semibold text-slate-900 text-sm truncate">{v.name}</p>
+                      <p className="text-xs text-slate-500 mt-0.5">{v.type} · {v.docs} docs · {v.submitted}</p>
                     </div>
-                    <div className="flex items-center gap-1.5 shrink-0">
-                      <Button size="icon" variant="ghost" className="h-8 w-8 text-emerald-600 hover:bg-emerald-50">
+                    <div className="flex items-center gap-1 shrink-0">
+                      <Button size="icon" variant="ghost" className="h-8 w-8 text-emerald-600 hover:bg-emerald-50 rounded-full">
                         <CheckCircle2 className="h-4 w-4" />
                       </Button>
-                      <Button size="icon" variant="ghost" className="h-8 w-8 text-red-500 hover:bg-red-50">
+                      <Button size="icon" variant="ghost" className="h-8 w-8 text-red-500 hover:bg-red-50 rounded-full">
                         <XCircle className="h-4 w-4" />
                       </Button>
-                      <Button size="icon" variant="ghost" className="h-8 w-8 text-muted-foreground hover:bg-muted">
+                      <Button size="icon" variant="ghost" className="h-8 w-8 text-slate-400 hover:bg-slate-100 rounded-full hidden sm:flex">
                         <Eye className="h-4 w-4" />
                       </Button>
                     </div>
@@ -232,37 +234,37 @@ export default function AdminDashboard() {
             </section>
 
             {/* Top Categories / Locations */}
-            <section className="bg-white rounded-2xl border border-border">
-              <div className="flex items-center justify-between px-6 py-5 border-b border-border/50">
-                <h2 className="font-heading font-bold text-lg text-primary flex items-center gap-2">
-                  <Globe className="h-5 w-5 text-amber-500" /> Top Categories & Locations
+            <section className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+              <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100 bg-slate-50/50">
+                <h2 className="font-sans font-bold text-base text-slate-900 flex items-center gap-2.5">
+                  <Globe className="h-4 w-4 text-indigo-500" /> Top Categories & Locations
                 </h2>
               </div>
-              <div className="px-6 py-5 space-y-6">
+              <div className="px-6 py-6 space-y-8">
                 <div>
-                  <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">By Equipment Category</h3>
-                  <div className="space-y-3">
-                    {[['Excavators', 42], ['Heavy Transport / Lowbeds', 31], ['Dump Trucks', 28], ['Bulldozers', 19], ['Backhoes', 14]].map(([cat, count]) => (
+                  <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">By Equipment Category</h3>
+                  <div className="space-y-4">
+                    {[['Excavators', 42], ['Heavy Transport', 31], ['Dump Trucks', 28], ['Bulldozers', 19]].map(([cat, count]) => (
                       <div key={String(cat)} className="flex items-center gap-3">
-                        <span className="text-sm font-medium text-primary w-40 truncate">{cat}</span>
-                        <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-                          <div className="h-2 bg-amber-400 rounded-full" style={{ width: `${(Number(count) / 42) * 100}%` }} />
+                        <span className="text-sm font-medium text-slate-700 w-32 truncate">{cat}</span>
+                        <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="h-full bg-indigo-500 rounded-full" style={{ width: `${(Number(count) / 42) * 100}%` }} />
                         </div>
-                        <span className="text-sm font-bold text-primary w-8 text-right">{count}</span>
+                        <span className="text-sm font-semibold text-slate-900 w-8 text-right">{count}</span>
                       </div>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">By Location</h3>
-                  <div className="space-y-3">
+                  <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">By Location</h3>
+                  <div className="space-y-4">
                     {[['Monrovia', 78], ['Buchanan', 22], ['Ganta', 18], ['Kakata', 11]].map(([loc, count]) => (
                       <div key={String(loc)} className="flex items-center gap-3">
-                        <span className="text-sm font-medium text-primary w-40">{loc}</span>
-                        <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-                          <div className="h-2 bg-primary rounded-full" style={{ width: `${(Number(count) / 78) * 100}%` }} />
+                        <span className="text-sm font-medium text-slate-700 w-32">{loc}</span>
+                        <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="h-full bg-sky-500 rounded-full" style={{ width: `${(Number(count) / 78) * 100}%` }} />
                         </div>
-                        <span className="text-sm font-bold text-primary w-8 text-right">{count}</span>
+                        <span className="text-sm font-semibold text-slate-900 w-8 text-right">{count}</span>
                       </div>
                     ))}
                   </div>
@@ -273,42 +275,42 @@ export default function AdminDashboard() {
           </div>
 
           {/* Recent Bookings Table */}
-          <section className="bg-white rounded-2xl border border-border">
-            <div className="flex items-center justify-between px-6 py-5 border-b border-border/50">
-              <h2 className="font-heading font-bold text-lg text-primary flex items-center gap-2">
-                <BookOpen className="h-5 w-5 text-amber-500" /> Recent Bookings
+          <section className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+            <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100 bg-slate-50/50">
+              <h2 className="font-sans font-bold text-base text-slate-900 flex items-center gap-2.5">
+                <BookOpen className="h-4 w-4 text-indigo-500" /> Recent Bookings
               </h2>
-              <div className="flex items-center gap-2">
-                <Button variant="outline" size="sm" className="gap-1.5 text-muted-foreground border-border h-8">
+              <div className="flex items-center gap-3">
+                <Button variant="outline" size="sm" className="gap-2 text-slate-600 border-slate-200 h-8 rounded-lg">
                   <Filter className="h-3.5 w-3.5" /> Filter
                 </Button>
-                <Link href="/admin/bookings" className="text-sm text-amber-600 hover:text-amber-700 font-medium">View All</Link>
+                <Link href="/admin/bookings" className="text-xs font-semibold text-indigo-600 hover:text-indigo-700">View All</Link>
               </div>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-border/50 bg-muted/20">
-                    <th className="text-xs font-semibold text-muted-foreground uppercase tracking-wider text-left px-6 py-3">Booking ID</th>
-                    <th className="text-xs font-semibold text-muted-foreground uppercase tracking-wider text-left px-6 py-3">Equipment</th>
-                    <th className="text-xs font-semibold text-muted-foreground uppercase tracking-wider text-left px-6 py-3 hidden md:table-cell">Customer</th>
-                    <th className="text-xs font-semibold text-muted-foreground uppercase tracking-wider text-left px-6 py-3 hidden lg:table-cell">Supplier</th>
-                    <th className="text-xs font-semibold text-muted-foreground uppercase tracking-wider text-left px-6 py-3">Amount</th>
-                    <th className="text-xs font-semibold text-muted-foreground uppercase tracking-wider text-left px-6 py-3">Status</th>
-                    <th className="px-6 py-3" />
+                  <tr className="border-b border-slate-100 bg-white">
+                    <th className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider text-left px-6 py-4">Booking ID</th>
+                    <th className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider text-left px-6 py-4">Equipment</th>
+                    <th className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider text-left px-6 py-4 hidden md:table-cell">Customer</th>
+                    <th className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider text-left px-6 py-4 hidden lg:table-cell">Supplier</th>
+                    <th className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider text-left px-6 py-4">Amount</th>
+                    <th className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider text-left px-6 py-4">Status</th>
+                    <th className="px-6 py-4" />
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-border/50">
+                <tbody className="divide-y divide-slate-100">
                   {RECENT_BOOKINGS.map((bk) => (
-                    <tr key={bk.id} className="hover:bg-muted/20 transition-colors">
-                      <td className="px-6 py-4 text-sm font-mono text-muted-foreground">{bk.id}</td>
-                      <td className="px-6 py-4 text-sm font-semibold text-primary">{bk.equipment}</td>
-                      <td className="px-6 py-4 text-sm text-muted-foreground hidden md:table-cell">{bk.customer}</td>
-                      <td className="px-6 py-4 text-sm text-muted-foreground hidden lg:table-cell">{bk.supplier}</td>
-                      <td className="px-6 py-4 text-sm font-bold text-primary">{bk.amount}</td>
+                    <tr key={bk.id} className="hover:bg-slate-50/80 transition-colors">
+                      <td className="px-6 py-4 text-sm font-medium text-slate-500">{bk.id}</td>
+                      <td className="px-6 py-4 text-sm font-semibold text-slate-900">{bk.equipment}</td>
+                      <td className="px-6 py-4 text-sm text-slate-600 hidden md:table-cell">{bk.customer}</td>
+                      <td className="px-6 py-4 text-sm text-slate-600 hidden lg:table-cell">{bk.supplier}</td>
+                      <td className="px-6 py-4 text-sm font-bold text-slate-900">{bk.amount}</td>
                       <td className="px-6 py-4"><StatusPill status={bk.status} /></td>
-                      <td className="px-6 py-4">
-                        <Button variant="ghost" size="icon" className="h-7 w-7 text-muted-foreground">
+                      <td className="px-6 py-4 text-right">
+                        <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 rounded-full hover:bg-slate-100">
                           <MoreHorizontal className="h-4 w-4" />
                         </Button>
                       </td>
