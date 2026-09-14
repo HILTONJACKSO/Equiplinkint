@@ -180,7 +180,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
   return (
     <div className="min-h-screen bg-slate-50 flex">
       {/* Sidebar - Desktop */}
-      <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#0f172a] text-slate-300 transform transition-transform duration-300 lg:translate-x-0 lg:static lg:flex lg:flex-col ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} flex flex-col`}>
+      <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#03071e] text-slate-300 transform transition-transform duration-300 lg:translate-x-0 lg:static lg:flex lg:flex-col ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} flex flex-col`}>
         <div className="h-16 flex items-center px-6 font-bold text-white text-xl tracking-tight border-b border-white/10 shrink-0">
           EQUIPLINK
           <button className="ml-auto lg:hidden" onClick={() => setSidebarOpen(false)}>
@@ -189,7 +189,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
         </div>
         <nav className="p-4 space-y-1 flex-1 overflow-y-auto">
           {NAV_ITEMS.map((item) => (
-            <Link key={item.label} href={item.href} className={`flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-colors ${item.active ? 'bg-indigo-600 text-white' : 'hover:bg-white/10 hover:text-white'}`}>
+            <Link key={item.label} href={item.href} className={`flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-colors ${item.active ? 'bg-[#ffb703] text-[#03071e]' : 'hover:bg-white/10 hover:text-white'}`}>
               <item.icon className={`h-5 w-5 ${item.active ? 'text-white' : 'text-slate-400'}`} />
               {item.label}
             </Link>
@@ -197,7 +197,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
         </nav>
         <div className="px-4 py-4 border-t border-white/10 flex items-center justify-between">
           <div className="flex items-center gap-3 px-3 py-2">
-            <div className="h-8 w-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-sm">A</div>
+            <div className="h-8 w-8 rounded-full bg-[#ffb703] flex items-center justify-center text-[#03071e] font-bold text-sm">A</div>
             <div>
               <div className="text-sm font-semibold text-white">Super Admin</div>
               <div className="text-xs text-white/50">admin@equiplink.com</div>
@@ -222,7 +222,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
               <p className="text-xs text-slate-500 hidden sm:block">Manage owner submissions and listings</p>
             </div>
           </div>
-          <Button onClick={openAddModal} className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold gap-2 rounded-lg">
+          <Button onClick={openAddModal} className="bg-[#ffb703] hover:bg-[#ffb703]/80 text-[#03071e] font-semibold gap-2 rounded-lg">
             <Plus className="h-4 w-4" /> Add Equipment
           </Button>
         </header>
@@ -278,7 +278,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
                       <td className="px-6 py-4 font-medium text-slate-900">{item.rate || '-'}</td>
                       <td className="px-6 py-4 text-right">
                         <div className="flex justify-end gap-2">
-                          <Button variant="ghost" size="icon" onClick={() => openEditModal(item)} className="text-slate-400 hover:text-indigo-600">
+                          <Button variant="ghost" size="icon" onClick={() => openEditModal(item)} className="text-slate-400 hover:text-[#ffb703]">
                             <Edit3 className="h-4 w-4" />
                           </Button>
                           <Button variant="ghost" size="icon" onClick={() => handleDelete(item.id)} className="text-slate-400 hover:text-red-600">
@@ -310,7 +310,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
               <div className="flex justify-between items-center p-6 border-b border-slate-100 bg-white">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center">
-                    <FileText className="w-5 h-5 text-indigo-600" />
+                    <FileText className="w-5 h-5 text-[#ffb703]" />
                   </div>
                   <div>
                     <h2 className="text-xl font-bold text-slate-900 tracking-tight">Equipment Owner Information Form</h2>
@@ -329,7 +329,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
                   {/* SECTION 1: OWNER INFO */}
                   <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
                     <h3 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
-                      <span className="bg-indigo-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">1</span>
+                      <span className="bg-[#ffb703] text-[#03071e] w-6 h-6 rounded-full flex items-center justify-center text-sm">1</span>
                       OWNER INFORMATION
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -355,7 +355,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
                   {/* SECTION 2: EQUIPMENT INFO */}
                   <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
                     <h3 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
-                      <span className="bg-indigo-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">2</span>
+                      <span className="bg-[#ffb703] text-[#03071e] w-6 h-6 rounded-full flex items-center justify-center text-sm">2</span>
                       EQUIPMENT INFORMATION
                     </h3>
                     
@@ -366,7 +366,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-semibold text-slate-700">Category</label>
-                        <select name="category" value={formData.category || ''} onChange={handleChange} className="w-full h-10 px-3 rounded-md border border-input bg-slate-50 text-sm focus:ring-2 focus:ring-indigo-600 focus:outline-none">
+                        <select name="category" value={formData.category || ''} onChange={handleChange} className="w-full h-10 px-3 rounded-md border border-input bg-slate-50 text-sm focus:ring-2 focus:ring-[#ffb703] focus:outline-none">
                           <option value="">Select Category...</option>
                           <option value="Truck">Truck</option>
                           <option value="Heavy machine">Heavy machine</option>
@@ -407,7 +407,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
 
                       <div className="space-y-2">
                         <label className="text-sm font-semibold text-slate-700">Condition</label>
-                        <select name="condition" value={formData.condition || ''} onChange={handleChange} className="w-full h-10 px-3 rounded-md border border-input bg-slate-50 text-sm focus:ring-2 focus:ring-indigo-600 focus:outline-none">
+                        <select name="condition" value={formData.condition || ''} onChange={handleChange} className="w-full h-10 px-3 rounded-md border border-input bg-slate-50 text-sm focus:ring-2 focus:ring-[#ffb703] focus:outline-none">
                           <option value="Excellent">Excellent</option>
                           <option value="Good">Good</option>
                           <option value="Fair">Fair</option>
@@ -419,17 +419,17 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
                         <label className="text-sm font-semibold text-slate-700">Operational?</label>
                         <div className="flex items-center gap-6 h-10">
                           <label className="flex items-center gap-2 text-sm cursor-pointer">
-                            <input type="radio" name="operational" checked={formData.operational === true} onChange={() => setFormData({...formData, operational: true})} className="w-4 h-4 text-indigo-600 focus:ring-indigo-600" /> Yes
+                            <input type="radio" name="operational" checked={formData.operational === true} onChange={() => setFormData({...formData, operational: true})} className="w-4 h-4 text-[#ffb703] focus:ring-[#ffb703]" /> Yes
                           </label>
                           <label className="flex items-center gap-2 text-sm cursor-pointer">
-                            <input type="radio" name="operational" checked={formData.operational === false} onChange={() => setFormData({...formData, operational: false})} className="w-4 h-4 text-indigo-600 focus:ring-indigo-600" /> No
+                            <input type="radio" name="operational" checked={formData.operational === false} onChange={() => setFormData({...formData, operational: false})} className="w-4 h-4 text-[#ffb703] focus:ring-[#ffb703]" /> No
                           </label>
                         </div>
                       </div>
 
                       <div className="space-y-2">
                         <label className="text-sm font-semibold text-slate-700">Availability</label>
-                        <select name="availability" value={formData.availability || ''} onChange={handleChange} className="w-full h-10 px-3 rounded-md border border-input bg-slate-50 text-sm focus:ring-2 focus:ring-indigo-600 focus:outline-none">
+                        <select name="availability" value={formData.availability || ''} onChange={handleChange} className="w-full h-10 px-3 rounded-md border border-input bg-slate-50 text-sm focus:ring-2 focus:ring-[#ffb703] focus:outline-none">
                           <option value="For rent">For rent</option>
                           <option value="For sale">For sale</option>
                           <option value="Both">Both</option>
@@ -445,10 +445,10 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
                         <label className="text-sm font-semibold text-slate-700">Operator Included?</label>
                         <div className="flex items-center gap-6 h-10">
                           <label className="flex items-center gap-2 text-sm cursor-pointer">
-                            <input type="radio" name="operatorIncluded" checked={formData.operatorIncluded === true} onChange={() => setFormData({...formData, operatorIncluded: true})} className="w-4 h-4 text-indigo-600 focus:ring-indigo-600" /> Yes
+                            <input type="radio" name="operatorIncluded" checked={formData.operatorIncluded === true} onChange={() => setFormData({...formData, operatorIncluded: true})} className="w-4 h-4 text-[#ffb703] focus:ring-[#ffb703]" /> Yes
                           </label>
                           <label className="flex items-center gap-2 text-sm cursor-pointer">
-                            <input type="radio" name="operatorIncluded" checked={formData.operatorIncluded === false} onChange={() => setFormData({...formData, operatorIncluded: false})} className="w-4 h-4 text-indigo-600 focus:ring-indigo-600" /> No
+                            <input type="radio" name="operatorIncluded" checked={formData.operatorIncluded === false} onChange={() => setFormData({...formData, operatorIncluded: false})} className="w-4 h-4 text-[#ffb703] focus:ring-[#ffb703]" /> No
                           </label>
                         </div>
                       </div>
@@ -463,7 +463,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
                   {/* SECTION 3: PHOTOS & DOCS */}
                   <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
                     <h3 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
-                      <span className="bg-indigo-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">3</span>
+                      <span className="bg-[#ffb703] text-[#03071e] w-6 h-6 rounded-full flex items-center justify-center text-sm">3</span>
                       PHOTOS AND DOCUMENTS
                     </h3>
                     
@@ -478,7 +478,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
                         <div className="text-center relative z-10">
                           <ImageIcon className="mx-auto h-12 w-12 text-slate-400" />
                           <div className="mt-4 flex text-sm leading-6 text-slate-600 justify-center">
-                            <label className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 px-3 py-1 shadow-sm focus-within:ring-2 focus-within:ring-indigo-600 hover:text-indigo-500">
+                            <label className="relative cursor-pointer rounded-md bg-white font-semibold text-[#ffb703] px-3 py-1 shadow-sm focus-within:ring-2 focus-within:ring-[#ffb703] hover:text-[#ffb703]">
                               <span>{uploadingImage ? 'Uploading...' : 'Upload Image'}</span>
                               <input type="file" className="sr-only" onChange={handleImageUpload} accept="image/*" disabled={uploadingImage} />
                             </label>
@@ -495,7 +495,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
                             const name = `has${item.replace(' ', '')}Photo`;
                             return (
                               <label key={item} className="flex items-center gap-3 text-sm cursor-pointer group">
-                                <input type="checkbox" name={name} checked={(formData as any)[name] || false} onChange={handleChange} className="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600" />
+                                <input type="checkbox" name={name} checked={(formData as any)[name] || false} onChange={handleChange} className="w-4 h-4 rounded border-slate-300 text-[#ffb703] focus:ring-[#ffb703]" />
                                 <span className="text-slate-700 group-hover:text-slate-900">{item}</span>
                               </label>
                             );
@@ -512,7 +512,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
                             { label: 'Other', name: 'hasOtherDocs' }
                           ].map((item) => (
                             <label key={item.name} className="flex items-center gap-3 text-sm cursor-pointer group">
-                              <input type="checkbox" name={item.name} checked={(formData as any)[item.name] || false} onChange={handleChange} className="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600" />
+                              <input type="checkbox" name={item.name} checked={(formData as any)[item.name] || false} onChange={handleChange} className="w-4 h-4 rounded border-slate-300 text-[#ffb703] focus:ring-[#ffb703]" />
                               <span className="text-slate-700 group-hover:text-slate-900">{item.label}</span>
                             </label>
                           ))}
@@ -524,7 +524,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
                   {/* SECTION 4: OWNER CONFIRMATION */}
                   <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
                     <h3 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center gap-2">
-                      <span className="bg-indigo-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">4</span>
+                      <span className="bg-[#ffb703] text-[#03071e] w-6 h-6 rounded-full flex items-center justify-center text-sm">4</span>
                       OWNER CONFIRMATION
                     </h3>
                     <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 mb-6">
@@ -551,7 +551,7 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
               {/* Modal Footer */}
               <div className="p-6 border-t border-slate-200 bg-white flex justify-end gap-3 shrink-0">
                 <Button variant="outline" onClick={() => setIsModalOpen(false)} className="text-slate-700 bg-white hover:bg-slate-50">Cancel</Button>
-                <Button onClick={handleSave} className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8">
+                <Button onClick={handleSave} className="bg-[#ffb703] hover:bg-[#ffb703]/80 text-[#03071e] font-bold px-8">
                   {editingId ? 'Save Changes' : 'Submit Equipment Registration'}
                 </Button>
               </div>

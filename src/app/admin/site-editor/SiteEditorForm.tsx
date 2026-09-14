@@ -153,7 +153,7 @@ export default function SiteEditorForm({ initialData }: { initialData: any }) {
             href={item.href}
             className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
               item.active
-                ? 'bg-white/15 text-white'
+                ? 'bg-[#6a040f] text-[#ffb703]'
                 : 'text-white/60 hover:bg-white/10 hover:text-white'
             }`}
           >
@@ -164,7 +164,7 @@ export default function SiteEditorForm({ initialData }: { initialData: any }) {
       </nav>
       <div className="px-4 py-4 border-t border-white/10 flex items-center justify-between">
         <div className="flex items-center gap-3 px-3 py-2">
-          <div className="h-8 w-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-sm">A</div>
+          <div className="h-8 w-8 rounded-full bg-[#ffb703] flex items-center justify-center text-[#03071e] font-bold text-sm">A</div>
           <div>
             <div className="text-sm font-semibold text-white">Super Admin</div>
             <div className="text-xs text-white/50">admin@equiplink.com</div>
@@ -179,14 +179,14 @@ export default function SiteEditorForm({ initialData }: { initialData: any }) {
 
   return (
     <div className="flex h-screen bg-slate-50 font-sans overflow-hidden">
-      <aside className="hidden lg:flex flex-col w-64 shrink-0 bg-[#0B1220] h-full border-r border-slate-800">
+      <aside className="hidden lg:flex flex-col w-64 shrink-0 bg-[#03071e] h-full border-r border-[#6a040f]/20">
         <Sidebar />
       </aside>
 
       {sidebarOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSidebarOpen(false)} />
-          <aside className="absolute left-0 top-0 bottom-0 w-64 bg-[#0B1220] flex flex-col border-r border-slate-800 shadow-2xl">
+          <aside className="absolute left-0 top-0 bottom-0 w-64 bg-[#03071e] flex flex-col border-r border-[#6a040f]/20 shadow-2xl">
             <Sidebar />
           </aside>
         </div>
@@ -212,7 +212,7 @@ export default function SiteEditorForm({ initialData }: { initialData: any }) {
             <Button 
               onClick={handleSave} 
               disabled={loading}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold gap-2 rounded-lg"
+              className="bg-[#ffb703] hover:bg-[#ffb703]/80 text-[#03071e] font-semibold gap-2 rounded-lg"
             >
               <Save className="h-4 w-4" />
               {loading ? 'Saving...' : 'Publish Changes'}
@@ -400,7 +400,7 @@ export default function SiteEditorForm({ initialData }: { initialData: any }) {
                                 <ImageIcon className="h-5 w-5 text-slate-400 absolute inset-0 m-auto" />
                               )}
                             </div>
-                            <label className="block text-center cursor-pointer text-xs font-medium text-indigo-600 hover:text-indigo-800">
+                            <label className="block text-center cursor-pointer text-xs font-medium text-[#ffb703] hover:text-[#ffb703]">
                               {uploadingImage === `pages.home.gallery.images.${idx}` ? 'Uploading...' : 'Upload'}
                               <input type="file" className="sr-only" onChange={(e) => handleImageUpload(e, ['pages', 'home', 'gallery', 'images', idx.toString()])} accept="image/*" />
                             </label>
@@ -521,7 +521,7 @@ export default function SiteEditorForm({ initialData }: { initialData: any }) {
                       <div className="space-y-2">
                         <label className="text-sm font-medium text-slate-700">Title</label>
                         <Input value={formData.equipment?.hero?.title || ''} onChange={e => updateField(['equipment', 'hero', 'title'], e.target.value)} className="bg-slate-50 font-semibold" />
-                        <p className="text-xs text-slate-500">HTML tags allowed, e.g., &lt;span className="text-amber-500"&gt;</p>
+                        <p className="text-xs text-slate-500">HTML tags allowed, e.g., &lt;span className="text-[#ffb703]"&gt;</p>
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-medium text-slate-700">Subtitle</label>

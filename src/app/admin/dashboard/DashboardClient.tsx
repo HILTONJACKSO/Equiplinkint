@@ -100,7 +100,7 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
             href={item.href}
             className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
               item.active
-                ? 'bg-white/15 text-white'
+                ? 'bg-[#6a040f] text-[#ffb703]'
                 : 'text-white/60 hover:bg-white/10 hover:text-white'
             }`}
           >
@@ -111,7 +111,7 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
       </nav>
       <div className="px-4 py-4 border-t border-white/10 flex items-center justify-between">
         <div className="flex items-center gap-3 px-3 py-2">
-          <div className="h-8 w-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-sm">A</div>
+          <div className="h-8 w-8 rounded-full bg-[#ffb703] flex items-center justify-center text-[#03071e] font-bold text-sm">A</div>
           <div>
             <div className="text-sm font-semibold text-white">Super Admin</div>
             <div className="text-xs text-white/50">admin@equiplink.com</div>
@@ -127,7 +127,7 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
   return (
     <div className="flex h-screen bg-slate-50 font-sans overflow-hidden">
       {/* Desktop Sidebar - dark navy */}
-      <aside className="hidden lg:flex flex-col w-64 shrink-0 bg-[#0B1220] h-full border-r border-slate-800">
+      <aside className="hidden lg:flex flex-col w-64 shrink-0 bg-[#03071e] h-full border-r border-[#6a040f]/20">
         <Sidebar />
       </aside>
 
@@ -135,7 +135,7 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
       {sidebarOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setSidebarOpen(false)} />
-          <aside className="absolute left-0 top-0 bottom-0 w-64 bg-[#0B1220] flex flex-col border-r border-slate-800 shadow-2xl">
+          <aside className="absolute left-0 top-0 bottom-0 w-64 bg-[#03071e] flex flex-col border-r border-[#6a040f]/20 shadow-2xl">
             <Sidebar />
           </aside>
         </div>
@@ -157,7 +157,7 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
           <div className="flex items-center gap-3">
             <div className="relative hidden md:block">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-              <Input placeholder="Search anything..." className="pl-9 w-64 h-9 bg-slate-100 border-transparent focus:bg-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all rounded-lg" />
+              <Input placeholder="Search anything..." className="pl-9 w-64 h-9 bg-slate-100 border-transparent focus:bg-white focus:border-[#ffb703] focus:ring-1 focus:ring-[#ffb703] transition-all rounded-lg" />
             </div>
             <Button variant="ghost" size="icon" className="relative text-slate-600 hover:bg-slate-100 rounded-full">
               <Bell className="h-5 w-5" />
@@ -198,11 +198,11 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
               <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100 bg-slate-50/50">
                 <div>
                   <h2 className="font-sans font-bold text-base text-slate-900 flex items-center gap-2.5">
-                    <ShieldCheck className="h-4 w-4 text-amber-500" /> {PENDING_VERIFICATIONS.length} pending verifications require your review
+                    <ShieldCheck className="h-4 w-4 text-[#ffb703]" /> {PENDING_VERIFICATIONS.length} pending verifications require your review
                   </h2>
                   <p className="text-xs text-slate-500 mt-1">Documents uploaded by suppliers and operators are awaiting admin approval.</p>
                 </div>
-                <Link href="/admin/verification" className="text-xs font-semibold text-indigo-600 hover:text-indigo-700">View All</Link>
+                <Link href="/admin/verification" className="text-xs font-semibold text-[#ffb703] hover:text-[#ffb703]">View All</Link>
               </div>
               <div className="divide-y divide-slate-100 flex-1">
                 {PENDING_VERIFICATIONS.length > 0 ? (
@@ -275,7 +275,7 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
                 <Button variant="outline" size="sm" className="gap-2 text-slate-600 border-slate-200 h-8 rounded-lg">
                   <Filter className="h-3.5 w-3.5" /> Filter
                 </Button>
-                <Link href="/admin/bookings" className="text-xs font-semibold text-indigo-600 hover:text-indigo-700">View All</Link>
+                <Link href="/admin/bookings" className="text-xs font-semibold text-[#ffb703] hover:text-[#ffb703]">View All</Link>
               </div>
             </div>
             <div className="overflow-x-auto">
