@@ -28,6 +28,7 @@ import {
   Globe,
   UserCheck,
   Edit3,
+  LogOut,
 } from 'lucide-react';
 
 const NAV_ITEMS = [
@@ -81,6 +82,11 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
   const PENDING_VERIFICATIONS: any[] = [];
   const RECENT_BOOKINGS: any[] = [];
 
+  const handleLogout = () => {
+    document.cookie = "admin_auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    window.location.href = '/login';
+  };
+
   const Sidebar = () => (
     <div className="flex flex-col h-full">
       <div className="px-6 py-5 border-b border-white/10">
@@ -103,7 +109,7 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
           </Link>
         ))}
       </nav>
-      <div className="px-4 py-4 border-t border-white/10">
+      <div className="px-4 py-4 border-t border-white/10 flex items-center justify-between">
         <div className="flex items-center gap-3 px-3 py-2">
           <div className="h-8 w-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-sm">A</div>
           <div>
@@ -111,6 +117,9 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
             <div className="text-xs text-white/50">admin@equiplink.com</div>
           </div>
         </div>
+        <button onClick={handleLogout} className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors" title="Log out">
+          <LogOut className="h-5 w-5" />
+        </button>
       </div>
     </div>
   );

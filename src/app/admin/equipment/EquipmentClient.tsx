@@ -18,7 +18,8 @@ import {
   Trash2,
   ImageIcon,
   X,
-  FileText
+  FileText,
+  LogOut
 } from 'lucide-react';
 import { addEquipment, updateEquipment, deleteEquipment, Equipment } from '@/app/actions/inventory';
 
@@ -160,6 +161,11 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
     }
   };
 
+  const handleLogout = () => {
+    document.cookie = "admin_auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    window.location.href = '/login';
+  };
+
   // Helper for text inputs
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
@@ -174,14 +180,14 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
   return (
     <div className="min-h-screen bg-slate-50 flex">
       {/* Sidebar - Desktop */}
-      <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#0f172a] text-slate-300 transform transition-transform duration-300 lg:translate-x-0 lg:static lg:block ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-        <div className="h-16 flex items-center px-6 font-bold text-white text-xl tracking-tight border-b border-white/10">
+      <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#0f172a] text-slate-300 transform transition-transform duration-300 lg:translate-x-0 lg:static lg:flex lg:flex-col ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} flex flex-col`}>
+        <div className="h-16 flex items-center px-6 font-bold text-white text-xl tracking-tight border-b border-white/10 shrink-0">
           EQUIPLINK
           <button className="ml-auto lg:hidden" onClick={() => setSidebarOpen(false)}>
             <X className="h-5 w-5" />
           </button>
         </div>
-        <nav className="p-4 space-y-1">
+        <nav className="p-4 space-y-1 flex-1 overflow-y-auto">
           {NAV_ITEMS.map((item) => (
             <Link key={item.label} href={item.href} className={`flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-colors ${item.active ? 'bg-indigo-600 text-white' : 'hover:bg-white/10 hover:text-white'}`}>
               <item.icon className={`h-5 w-5 ${item.active ? 'text-white' : 'text-slate-400'}`} />
@@ -189,6 +195,18 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
             </Link>
           ))}
         </nav>
+        <div className="px-4 py-4 border-t border-white/10 flex items-center justify-between">
+          <div className="flex items-center gap-3 px-3 py-2">
+            <div className="h-8 w-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-sm">A</div>
+            <div>
+              <div className="text-sm font-semibold text-white">Super Admin</div>
+              <div className="text-xs text-white/50">admin@equiplink.com</div>
+            </div>
+          </div>
+          <button onClick={handleLogout} className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors" title="Log out">
+            <LogOut className="h-5 w-5" />
+          </button>
+        </div>
       </aside>
 
       {/* Main Content */}
