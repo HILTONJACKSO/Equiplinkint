@@ -3,8 +3,12 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Menu, Search, Tractor, User, PhoneCall } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
+import { getSiteContent } from '@/app/actions/cms';
 
-export function Navbar() {
+export async function Navbar() {
+  const cms = await getSiteContent();
+  const phone = cms?.header?.phone || '+231 77 000 0000';
+
   return (
     <header className="sticky top-0 z-50 w-full bg-[#0B1220]/95 backdrop-blur-md supports-[backdrop-filter]:bg-[#0B1220]/90 border-b border-[#1e3454]">
       <div className="max-w-7xl mx-auto px-4 h-24 flex items-center justify-between">
@@ -36,11 +40,11 @@ export function Navbar() {
           </nav>
         </div>
         
-        {/* Desktop CTA */}
+        {/* Right Actions */}
         <div className="hidden lg:flex items-center gap-4">
           <div className="hidden xl:flex items-center gap-2 mr-4 text-slate-400 border-r border-[#1e3454] pr-6">
             <PhoneCall className="w-4 h-4 text-amber-500" />
-            <span className="text-sm font-bold">+231 77 000 0000</span>
+            <span className="text-sm font-bold">{phone}</span>
           </div>
           <Button nativeButton={false} render={<Link href="/login" />} variant="ghost" className="text-slate-300 hover:text-white hover:bg-white/5 font-bold h-12 px-6 rounded-xl text-sm flex items-center gap-2">
             <User className="w-4 h-4" /> Sign In

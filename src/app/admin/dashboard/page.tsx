@@ -27,10 +27,12 @@ import {
   Activity,
   Globe,
   UserCheck,
+  Edit3,
 } from 'lucide-react';
 
 const NAV_ITEMS = [
   { label: 'Overview', icon: LayoutDashboard, href: '/admin/dashboard', active: true },
+  { label: 'Site Editor', icon: Edit3, href: '/admin/site-editor' },
   { label: 'Users', icon: Users, href: '/admin/users' },
   { label: 'Equipment', icon: Package, href: '/admin/equipment' },
   { label: 'Bookings', icon: BookOpen, href: '/admin/bookings' },

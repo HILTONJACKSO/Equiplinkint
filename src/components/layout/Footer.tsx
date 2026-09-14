@@ -2,8 +2,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Tractor, Mail, MapPin, PhoneCall } from 'lucide-react';
+import { getSiteContent } from '@/app/actions/cms';
 
-export function Footer() {
+export async function Footer() {
+  const cms = await getSiteContent();
+  const footer = cms?.footer || {
+    aboutText: "Liberia's premier network for heavy machinery rental, specialized transport, and comprehensive maintenance support.",
+    email: "hello@equiplink.com",
+    phone: "+231 77 000 0000",
+    address: "Monrovia, Liberia"
+  };
+
   return (
     <footer className="bg-[#05080f] border-t border-[#132238] text-white pt-12 md:pt-20 pb-8 md:pb-10">
       <div className="max-w-7xl mx-auto px-4">
@@ -15,7 +24,7 @@ export function Footer() {
               <Image src="/images/logo.jpg" alt="Equiplink Logo" width={200} height={80} className="w-auto h-16 object-contain rounded-xl shadow-sm bg-white" />
             </Link>
             <p className="text-slate-400 leading-relaxed text-lg mb-8">
-              Liberia's premier network for heavy machinery rental, specialized transport, and comprehensive maintenance support.
+              {footer.aboutText}
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 rounded-full bg-[#132238] flex items-center justify-center text-slate-400 hover:bg-amber-500 hover:text-[#0B1220] transition-colors">
@@ -90,15 +99,15 @@ export function Footer() {
             <ul className="space-y-5">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-                <span className="text-slate-400 font-medium leading-relaxed">Freeport of Monrovia<br/>Monrovia, Liberia</span>
+                <span className="text-slate-400 font-medium leading-relaxed whitespace-pre-wrap">{footer.address}</span>
               </li>
               <li className="flex items-center gap-3">
                 <PhoneCall className="w-5 h-5 text-amber-500 shrink-0" />
-                <span className="text-slate-400 font-medium">+231 77 000 0000</span>
+                <span className="text-slate-400 font-medium">{footer.phone}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-amber-500 shrink-0" />
-                <span className="text-slate-400 font-medium">hello@equiplink.com</span>
+                <span className="text-slate-400 font-medium">{footer.email}</span>
               </li>
             </ul>
           </div>

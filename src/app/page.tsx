@@ -30,9 +30,16 @@ import {
   CreditCard,
   CheckCircle2
 } from "lucide-react";
+import { getSiteContent } from '@/app/actions/cms';
 
-export default function Home() {
+export default async function Home() {
   const featuredEquipment = mockEquipment.slice(0, 3);
+  const cms = await getSiteContent();
+  const hero = cms?.hero || {
+    title1: "Move Big.",
+    title2: "Build Bigger.",
+    subtitle: "Find trusted heavy equipment, trucks, operators, and logistics services across Liberia — all in one place.",
+  };
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -64,12 +71,12 @@ export default function Home() {
               </div>
               
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-heading mb-6 leading-[1.1] tracking-tight">
-                <span className="text-white block">Move Big.</span>
-                <span className="text-amber-500 block">Build Bigger.</span>
+                <span className="text-white block">{hero.title1}</span>
+                <span className="text-amber-500 block">{hero.title2}</span>
               </h1>
               
               <p className="text-white/80 text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed max-w-xl">
-                Find trusted heavy equipment, trucks, operators, and logistics services across Liberia — all in one place.
+                {hero.subtitle}
               </p>
               
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
