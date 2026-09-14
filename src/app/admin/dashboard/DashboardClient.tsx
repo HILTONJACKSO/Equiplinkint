@@ -38,7 +38,7 @@ const NAV_ITEMS = [
   { label: 'Bookings', icon: BookOpen, href: '/admin/bookings' },
   { label: 'Payments', icon: DollarSign, href: '/admin/payments' },
   { label: 'Reviews', icon: Star, href: '/admin/reviews' },
-  { label: 'Verification', icon: ShieldCheck, href: '/admin/verification', badge: 7 },
+  { label: 'Verification', icon: ShieldCheck, href: '/admin/verification' },
   { label: 'Reports', icon: Activity, href: '/admin/reports' },
   { label: 'Settings', icon: Settings, href: '/admin/settings' },
 ];
@@ -100,11 +100,6 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
           >
             <item.icon className="h-4 w-4 shrink-0" />
             <span className="flex-1">{item.label}</span>
-            {item.badge && (
-              <span className="text-xs font-bold px-1.5 py-0.5 rounded-full bg-amber-500 text-white">
-                {item.badge}
-              </span>
-            )}
           </Link>
         ))}
       </nav>
@@ -185,18 +180,6 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
               ))}
             </div>
           </section>
-
-          {/* Pending Verification Alert */}
-          <div className="bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 flex items-center gap-4">
-            <AlertCircle className="h-5 w-5 text-amber-600 shrink-0" />
-            <div className="flex-1">
-              <p className="font-semibold text-amber-800">7 pending verifications require your review</p>
-              <p className="text-sm text-amber-700">Documents uploaded by suppliers and operators are awaiting admin approval.</p>
-            </div>
-            <Button className="shrink-0 bg-amber-500 hover:bg-amber-600 text-white rounded-full px-4 hidden sm:flex">
-              Review Now
-            </Button>
-          </div>
 
           {/* Two-column: Verifications + Top Categories */}
           <div className="grid lg:grid-cols-2 gap-6">

@@ -2,176 +2,152 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Mail, Lock, Truck } from 'lucide-react';
+import { Mail, Lock, Truck, ArrowRight, AlertCircle } from 'lucide-react';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Auth logic goes here
-    setTimeout(() => setLoading(false), 1500);
+    setError('');
+
+    setTimeout(() => {
+      if (password === 'LibE@2026') {
+        // Set cookie manually in JS
+        document.cookie = "admin_auth=authenticated; path=/; max-age=86400";
+        router.push('/admin/dashboard');
+      } else {
+        setError('Invalid credentials. Please try again.');
+        setLoading(false);
+      }
+    }, 1000);
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex flex-col">
-      {/* Top nav bar */}
-      <header className="px-6 py-4">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 font-bold text-[#0B1220] text-xl hover:opacity-80 transition-opacity"
-        >
-          <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500 text-white">
-            <Truck size={18} />
-          </span>
-          <span className="font-heading">Equiplink</span>
-        </Link>
-      </header>
+    <div className="min-h-screen bg-slate-50 flex">
+      {/* Left Column - Image/Branding (Hidden on mobile) */}
+      <div className="hidden lg:flex lg:w-1/2 relative bg-[#0f172a] overflow-hidden flex-col justify-between p-12">
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay z-0"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+        
+        <div className="relative z-10 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center">
+            <Truck className="w-6 h-6 text-white" />
+          </div>
+          <span className="font-heading font-bold text-2xl text-white tracking-tight">Equiplink</span>
+        </div>
 
-      {/* Card section */}
-      <div className="flex-1 flex items-center justify-center px-4 py-12">
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-lg p-8 md:p-10 max-w-md w-full mx-auto">
-          {/* Heading */}
-          <div className="mb-8">
-            <h1 className="font-heading font-bold text-3xl text-[#0B1220] mb-2">
-              Welcome back
-            </h1>
-            <p className="text-[#64748B] text-sm">
-              Sign in to your Equiplink account
-            </p>
+        <div className="relative z-10">
+          <h1 className="text-4xl lg:text-5xl font-extrabold text-white font-heading leading-[1.15] mb-6">
+            The backbone of <br/><span className="text-amber-500">Liberia's infrastructure</span>
+          </h1>
+          <p className="text-lg text-slate-300 max-w-md leading-relaxed">
+            Manage heavy equipment rentals, transport logistics, and supplier networks all from a single powerful dashboard.
+          </p>
+        </div>
+
+        {/* Floating cards decoration */}
+        <div className="absolute bottom-12 right-12 opacity-80 mix-blend-luminosity">
+           <div className="relative w-72 h-48 rounded-2xl overflow-hidden shadow-2xl border border-white/10 rotate-[-5deg]">
+             <Image src="/images/cat_336_excavator.png" alt="Equipment" fill className="object-cover" />
+           </div>
+           <div className="absolute -top-12 -right-8 w-48 h-32 rounded-xl overflow-hidden shadow-xl border border-white/10 rotate-[10deg]">
+             <Image src="/images/fleet_semi_truck.png" alt="Transport" fill className="object-cover" />
+           </div>
+        </div>
+      </div>
+
+      {/* Right Column - Form */}
+      <div className="flex-1 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-12">
+        <div className="w-full max-w-md">
+          
+          <div className="lg:hidden flex items-center justify-center gap-3 mb-10">
+            <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center">
+              <Truck className="w-6 h-6 text-white" />
+            </div>
+            <span className="font-heading font-bold text-2xl text-slate-900 tracking-tight">Equiplink</span>
           </div>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Email */}
-            <div className="space-y-1.5">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-[#0B1220]"
+          <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-xl shadow-slate-200/50 border border-slate-100">
+            <div className="mb-8 text-center sm:text-left">
+              <h2 className="text-2xl font-bold text-slate-900 font-heading mb-2">Welcome back</h2>
+              <p className="text-slate-500">Sign in to your admin control panel</p>
+            </div>
+
+            {error && (
+              <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-100 flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                <p className="text-sm text-red-700 font-medium">{error}</p>
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-700">Email address</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Mail className="h-5 w-5 text-slate-400" />
+                  </div>
+                  <Input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="pl-10 h-12 bg-slate-50 border-slate-200 focus:bg-white"
+                    placeholder="admin@equiplink.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <label className="text-sm font-semibold text-slate-700">Password</label>
+                  <Link href="#" className="text-sm font-semibold text-indigo-600 hover:text-indigo-500">
+                    Forgot password?
+                  </Link>
+                </div>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <Lock className="h-5 w-5 text-slate-400" />
+                  </div>
+                  <Input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="pl-10 h-12 bg-slate-50 border-slate-200 focus:bg-white"
+                    placeholder="••••••••"
+                    required
+                  />
+                </div>
+              </div>
+
+              <Button 
+                type="submit" 
+                className="w-full h-12 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-lg rounded-xl mt-6 group"
+                disabled={loading}
               >
-                Email address
-              </label>
-              <div className="relative">
-                <Mail
-                  size={16}
-                  className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748B] pointer-events-none"
-                />
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="you@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="h-12 pl-10 rounded-xl border-[#E2E8F0] bg-white focus-visible:ring-amber-500/30 focus-visible:border-amber-500 text-[#0B1220] placeholder:text-[#94A3B8]"
-                />
-              </div>
-            </div>
-
-            {/* Password */}
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-[#0B1220]"
-                >
-                  Password
-                </label>
-                <Link
-                  href="/forgot-password"
-                  className="text-xs text-amber-500 hover:text-amber-600 font-medium transition-colors"
-                >
-                  Forgot password?
-                </Link>
-              </div>
-              <div className="relative">
-                <Lock
-                  size={16}
-                  className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748B] pointer-events-none"
-                />
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="••••••••"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  className="h-12 pl-10 rounded-xl border-[#E2E8F0] bg-white focus-visible:ring-amber-500/30 focus-visible:border-amber-500 text-[#0B1220] placeholder:text-[#94A3B8]"
-                />
-              </div>
-            </div>
-
-            {/* Submit */}
-            <Button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-[#0B1220] hover:bg-[#0B1220]/90 text-white h-12 rounded-xl text-sm font-semibold transition-all mt-2"
-            >
-              {loading ? 'Signing in…' : 'Sign in'}
-            </Button>
-          </form>
-
-          {/* Divider */}
-          <div className="relative my-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-[#E2E8F0]" />
-            </div>
-            <div className="relative flex justify-center text-xs">
-              <span className="bg-white px-3 text-[#64748B]">
-                or continue with
-              </span>
-            </div>
+                {loading ? 'Signing in...' : (
+                  <span className="flex items-center gap-2">
+                    Sign In to Dashboard
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                )}
+              </Button>
+            </form>
           </div>
 
-          {/* Google button */}
-          <Button
-            type="button"
-            variant="outline"
-            className="w-full h-12 rounded-xl border-[#E2E8F0] bg-white hover:bg-[#F8FAFC] text-[#0B1220] font-medium text-sm gap-3 transition-all"
-          >
-            {/* Google SVG icon */}
-            <svg
-              aria-hidden="true"
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M17.64 9.205c0-.639-.057-1.252-.164-1.841H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615Z"
-                fill="#4285F4"
-              />
-              <path
-                d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18Z"
-                fill="#34A853"
-              />
-              <path
-                d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332Z"
-                fill="#FBBC05"
-              />
-              <path
-                d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58Z"
-                fill="#EA4335"
-              />
-            </svg>
-            Continue with Google
-          </Button>
-
-          {/* Sign up link */}
-          <p className="mt-6 text-center text-sm text-[#64748B]">
-            Don&apos;t have an account?{' '}
-            <Link
-              href="/register"
-              className="text-amber-500 hover:text-amber-600 font-semibold transition-colors"
-            >
-              Sign up
-            </Link>
+          <p className="text-center text-sm text-slate-500 mt-8">
+            Having trouble accessing your account? <br className="sm:hidden" />
+            <a href="#" className="font-semibold text-slate-700 hover:text-indigo-600">Contact Support</a>
           </p>
         </div>
       </div>
