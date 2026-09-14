@@ -214,13 +214,13 @@ export default async function Home() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
               <div className="max-w-xl">
-                <div className="text-sm font-bold text-amber-500 tracking-widest uppercase mb-4">Rent Our Fleet</div>
+                <div className="text-sm font-bold text-amber-500 tracking-widest uppercase mb-4">{cms?.pages?.home?.bentoRentals?.subtitle || "Rent Our Fleet"}</div>
                 <h2 className="text-3xl md:text-5xl font-bold font-heading leading-tight text-[#132238]">
-                  Machinery for Every Project
+                  {cms?.pages?.home?.bentoRentals?.title || "Machinery for Every Project"}
                 </h2>
               </div>
               <div className="max-w-sm text-sm text-[#64748B] font-medium leading-relaxed">
-                From earthmoving to heavy haulage, our extensive fleet is ready to deploy. Top-tier brands maintained to the highest standards.
+                {cms?.pages?.home?.bentoRentals?.desc || "From earthmoving to heavy haulage, our extensive fleet is ready to deploy. Top-tier brands maintained to the highest standards."}
               </div>
             </div>
 
@@ -375,16 +375,14 @@ export default async function Home() {
               {/* Left Side */}
               <div className="lg:w-1/3">
                 <div className="text-sm font-bold text-amber-500 tracking-widest uppercase mb-4">
-                  HOW IT WORKS
+                  {cms?.pages?.home?.howItWorks?.subtitle || "HOW IT WORKS"}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6 leading-tight text-foreground">
-                  Rent Heavy Machinery in <br /><span className="text-amber-500">4 Simple Steps</span>
-                </h2>
+                <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6 leading-tight text-foreground" dangerouslySetInnerHTML={{ __html: cms?.pages?.home?.howItWorks?.title || "Rent Heavy Machinery in <br /><span className=\"text-amber-500\">4 Simple Steps</span>" }} />
                 <p className="text-muted-foreground leading-relaxed">
-                  A streamlined, transparent process to get the heavy equipment you need, exactly when you need it. We handle the logistics so you can focus on building.
+                  {cms?.pages?.home?.howItWorks?.desc || "A streamlined, transparent process to get the heavy equipment you need, exactly when you need it. We handle the logistics so you can focus on building."}
                 </p>
                 <div className="mt-12 relative h-64 w-full rounded-2xl overflow-hidden border border-border hidden lg:block">
-                  <Image src="/images/equipment_excavator.png" alt="How it works" fill className="object-cover" />
+                  <Image src={cms?.pages?.home?.howItWorks?.image || "/images/equipment_excavator.png"} alt="How it works" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A0D11] to-transparent opacity-50" />
                 </div>
               </div>
@@ -423,30 +421,30 @@ export default async function Home() {
         <section className="py-24 bg-white border-t border-[#E2E8F0]">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className="text-sm font-bold text-amber-500 tracking-widest uppercase mb-4">Our Fleet</div>
-              <h2 className="text-3xl md:text-5xl font-bold font-heading text-[#132238] mb-6">Equipment Gallery</h2>
-              <p className="text-[#64748B] text-lg">Take a look at some of the heavy-duty machinery ready for your next big project.</p>
+              <div className="text-sm font-bold text-amber-500 tracking-widest uppercase mb-4">{cms?.pages?.home?.gallery?.subtitle || "Our Fleet"}</div>
+              <h2 className="text-3xl md:text-5xl font-bold font-heading text-[#132238] mb-6">{cms?.pages?.home?.gallery?.title || "Equipment Gallery"}</h2>
+              <p className="text-[#64748B] text-lg">{cms?.pages?.home?.gallery?.desc || "Take a look at some of the heavy-duty machinery ready for your next big project."}</p>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[250px]">
               <div className="relative group rounded-2xl overflow-hidden md:col-span-2 md:row-span-2">
-                <Image src="/images/media__1788003157001.jpg" alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src={cms?.pages?.home?.gallery?.images?.[0] || "/images/media__1788003157001.jpg"} alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
               </div>
               <div className="relative group rounded-2xl overflow-hidden">
-                <Image src="/images/media__1788003157015.jpg" alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src={cms?.pages?.home?.gallery?.images?.[1] || "/images/media__1788003157015.jpg"} alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
               </div>
               <div className="relative group rounded-2xl overflow-hidden">
-                <Image src="/images/media__1788003157033.jpg" alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src={cms?.pages?.home?.gallery?.images?.[2] || "/images/media__1788003157033.jpg"} alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
               </div>
               <div className="relative group rounded-2xl overflow-hidden">
-                <Image src="/images/media__1788003157055.jpg" alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src={cms?.pages?.home?.gallery?.images?.[3] || "/images/media__1788003157055.jpg"} alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
               </div>
               <div className="relative group rounded-2xl overflow-hidden md:col-span-2">
-                <Image src="/images/media__1788003157072.jpg" alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src={cms?.pages?.home?.gallery?.images?.[4] || "/images/media__1788003157072.jpg"} alt="Heavy Equipment" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
               </div>
             </div>
@@ -458,17 +456,17 @@ export default async function Home() {
         <section className="py-24 bg-[#F8FAFC] border-t border-[#E2E8F0]">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className="text-sm font-bold text-amber-500 tracking-widest uppercase mb-4">Client Success Stories</div>
-              <h2 className="text-3xl md:text-5xl font-bold font-heading text-[#132238] mb-6">Trusted by Industry Leaders</h2>
-              <p className="text-[#64748B] text-lg">Don't just take our word for it. Hear from the contractors and managers who rely on Equiplink every day.</p>
+              <div className="text-sm font-bold text-amber-500 tracking-widest uppercase mb-4">{cms?.pages?.home?.testimonials?.subtitle || "Client Success Stories"}</div>
+              <h2 className="text-3xl md:text-5xl font-bold font-heading text-[#132238] mb-6">{cms?.pages?.home?.testimonials?.title || "Trusted by Industry Leaders"}</h2>
+              <p className="text-[#64748B] text-lg">{cms?.pages?.home?.testimonials?.desc || "Don't just take our word for it. Hear from the contractors and managers who rely on Equiplink every day."}</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              {[
+              {(cms?.pages?.home?.testimonials?.items || [
                 { name: "Samuel Johnson", role: "Site Manager, West Africa Construction", quote: "The equipment was flawless and the operator was incredibly professional. Kept our highway project ahead of schedule by a full week." },
                 { name: "David Mensah", role: "Procurement Director, Golden Mining Corp", quote: "Finding specialized heavy lifters in Liberia used to be a nightmare until we partnered with Equiplink. Delivered next day, perfectly serviced." },
                 { name: "Michael Roberts", role: "Independent Contractor", quote: "Their on-site maintenance team is absolutely unmatched. When our rented wheel loader had a hydraulic issue, they fixed it within 2 hours." }
-              ].map((testimonial, i) => (
+              ]).map((testimonial: any, i: number) => (
                 <AnimatedStep key={i} delay={i * 0.2} className="bg-white p-10 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative group border border-slate-100 flex flex-col h-full">
                   {/* Large decorative quote mark */}
                   <div className="absolute top-8 right-8 text-slate-100 group-hover:text-amber-500/10 transition-colors duration-300">
@@ -499,16 +497,16 @@ export default async function Home() {
         <section className="bg-[#132238] border-t border-[#0B1220]">
           <div className="grid md:grid-cols-2">
             <div className="relative min-h-[400px] md:min-h-[600px] w-full">
-              <Image src="/images/equipment_excavator.png" alt="Equipment Yard" fill className="object-cover" />
+              <Image src={cms?.pages?.home?.supplierCta?.image || "/images/equipment_excavator.png"} alt="Equipment Yard" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#132238] hidden md:block" />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#132238] md:hidden" />
             </div>
             <div className="flex items-center justify-center p-12 lg:p-24 relative">
               <div className="max-w-xl">
-                <div className="text-sm font-bold text-amber-500 tracking-widest uppercase mb-4">Partner With Us</div>
-                <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6 leading-tight">Turn Your Idle Assets Into Revenue</h2>
+                <div className="text-sm font-bold text-amber-500 tracking-widest uppercase mb-4">{cms?.pages?.home?.supplierCta?.subtitle || "Partner With Us"}</div>
+                <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6 leading-tight">{cms?.pages?.home?.supplierCta?.title || "Turn Your Idle Assets Into Revenue"}</h2>
                 <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-                  Join our supplier network and let your heavy machinery work for you. We handle the vetting, the logistics, and guarantee your payments.
+                  {cms?.pages?.home?.supplierCta?.desc || "Join our supplier network and let your heavy machinery work for you. We handle the vetting, the logistics, and guarantee your payments."}
                 </p>
                 <ul className="space-y-4 mb-10">
                   {['Guaranteed, on-time payments', 'Fully verified & insured renters', 'Complete control over your rates & schedule'].map((item, i) => (
@@ -545,15 +543,15 @@ export default async function Home() {
 
         {/* CTA SECTION */}
         <section className="relative py-32 border-t border-[#0B1220] overflow-hidden">
-          <Image src="/images/hero_excavator_sunset.png" alt="Equiplink Fleet" fill className="object-cover absolute inset-0 z-0" />
+          <Image src={cms?.pages?.home?.finalCta?.image || "/images/hero_excavator_sunset.png"} alt="Equiplink Fleet" fill className="object-cover absolute inset-0 z-0" />
           <div className="absolute inset-0 bg-[#0B1220]/85 z-10" />
           
           <div className="relative z-20 max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6">
-              Ready to Upgrade Your Next Project?
+              {cms?.pages?.home?.finalCta?.title || "Ready to Upgrade Your Next Project?"}
             </h2>
             <p className="text-slate-200 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-              Join hundreds of contractors and project managers who trust Equiplink for top-tier heavy machinery, reliable transport, and unmatched service.
+              {cms?.pages?.home?.finalCta?.desc || "Join hundreds of contractors and project managers who trust Equiplink for top-tier heavy machinery, reliable transport, and unmatched service."}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button nativeButton={false} render={<Link href="/request" />} className="bg-amber-500 hover:bg-amber-600 text-black font-bold h-14 px-10 rounded-xl text-lg shadow-xl shadow-amber-500/20 transition-all hover:scale-105">

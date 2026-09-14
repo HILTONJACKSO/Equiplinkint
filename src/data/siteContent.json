@@ -15,6 +15,62 @@
         "title2": "Build Bigger.",
         "subtitle": "Find trusted heavy equipment, trucks, operators, and logistics services across Liberia — all in one place.",
         "image": "/images/hero_excavator_right.png"
+      },
+      "bentoRentals": {
+        "subtitle": "Rent Our Fleet",
+        "title": "Machinery for Every Project",
+        "desc": "From earthmoving to heavy haulage, our extensive fleet is ready to deploy. Top-tier brands maintained to the highest standards."
+      },
+      "howItWorks": {
+        "subtitle": "HOW IT WORKS",
+        "title": "Rent Heavy Machinery in 4 Simple Steps",
+        "desc": "A streamlined, transparent process to get the heavy equipment you need, exactly when you need it. We handle the logistics so you can focus on building.",
+        "image": "/images/equipment_excavator.png"
+      },
+      "gallery": {
+        "subtitle": "Our Fleet",
+        "title": "Equipment Gallery",
+        "desc": "Take a look at some of the heavy-duty machinery ready for your next big project.",
+        "images": [
+          "/images/media__1788003157001.jpg",
+          "/images/media__1788003157015.jpg",
+          "/images/media__1788003157033.jpg",
+          "/images/media__1788003157055.jpg",
+          "/images/media__1788003157072.jpg"
+        ]
+      },
+      "testimonials": {
+        "subtitle": "Client Success Stories",
+        "title": "Trusted by Industry Leaders",
+        "desc": "Don't just take our word for it. Hear from the contractors and managers who rely on Equiplink every day.",
+        "items": [
+          {
+            "name": "Samuel Johnson",
+            "role": "Site Manager, West Africa Construction",
+            "quote": "The equipment was flawless and the operator was incredibly professional. Kept our highway project ahead of schedule by a full week."
+          },
+          {
+            "name": "David Mensah",
+            "role": "Procurement Director, Golden Mining Corp",
+            "quote": "Finding specialized heavy lifters in Liberia used to be a nightmare until we partnered with Equiplink. Delivered next day, perfectly serviced."
+          },
+          {
+            "name": "Michael Roberts",
+            "role": "Independent Contractor",
+            "quote": "Their on-site maintenance team is absolutely unmatched. When our rented wheel loader had a hydraulic issue, they fixed it within 2 hours."
+          }
+        ]
+      },
+      "supplierCta": {
+        "subtitle": "Partner With Us",
+        "title": "Turn Your Idle Assets Into Revenue",
+        "desc": "Join our supplier network and let your heavy machinery work for you. We handle the vetting, the logistics, and guarantee your payments.",
+        "image": "/images/equipment_excavator.png"
+      },
+      "finalCta": {
+        "title": "Ready to Upgrade Your Next Project?",
+        "desc": "Join hundreds of contractors and project managers who trust Equiplink for top-tier heavy machinery, reliable transport, and unmatched service.",
+        "image": "/images/hero_excavator_sunset.png"
       }
     }
   }
