@@ -8,11 +8,47 @@ const inventoryFilePath = path.join(process.cwd(), 'src/data/inventory.json');
 
 export type Equipment = {
   id: string;
-  title: string;
+  title: string; // Used for display, e.g., Make + Model
   category: string;
   specs: string[];
   rate: string;
   image: string;
+  
+  // 1. OWNER INFORMATION
+  ownerName?: string;
+  contactPerson?: string;
+  phone?: string;
+  email?: string;
+
+  // 2. EQUIPMENT INFORMATION
+  equipmentType?: string;
+  make?: string;
+  model?: string;
+  year?: string;
+  color?: string;
+  vin?: string;
+  location?: string;
+  condition?: string;
+  operational?: boolean;
+  availability?: string;
+  operatorIncluded?: boolean;
+  availableFrom?: string;
+
+  // 3. PHOTOS AND DOCUMENTS (Checkboxes)
+  hasFrontPhoto?: boolean;
+  hasRearPhoto?: boolean;
+  hasLeftSidePhoto?: boolean;
+  hasRightSidePhoto?: boolean;
+  hasIdPlatePhoto?: boolean;
+  hasDamagePhoto?: boolean;
+  hasProofOfOwnership?: boolean;
+  hasRegistration?: boolean;
+  hasInsurance?: boolean;
+  hasOtherDocs?: boolean;
+
+  // 4. OWNER CONFIRMATION
+  confirmedName?: string;
+  confirmedDate?: string;
 };
 
 // Utility to read without Server Action wrapper for Server Components
