@@ -6,10 +6,9 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Mail, Lock, Truck, ArrowRight, AlertCircle } from 'lucide-react';
+import { Lock, Truck, ArrowRight, AlertCircle } from 'lucide-react';
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -92,28 +91,8 @@ export default function LoginPage() {
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-700">Email address</label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Mail className="h-5 w-5 text-slate-400" />
-                  </div>
-                  <Input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10 h-12 bg-slate-50 border-slate-200 focus:bg-white"
-                    placeholder="admin@equiplink.com"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <label className="text-sm font-semibold text-slate-700">Password</label>
-                  <Link href="#" className="text-sm font-semibold text-indigo-600 hover:text-indigo-500">
-                    Forgot password?
-                  </Link>
+                  <label className="text-sm font-semibold text-slate-700">Admin Password</label>
                 </div>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
