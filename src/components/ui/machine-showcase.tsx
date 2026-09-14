@@ -65,7 +65,7 @@ const machines = [
   }
 ];
 
-export function MachineShowcase() {
+export function MachineShowcase({ content }: { content?: any }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -75,13 +75,13 @@ export function MachineShowcase() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full text-xs font-bold text-amber-600 bg-amber-50 tracking-widest uppercase mb-4 border border-amber-100">
-            Our Complete Fleet
+            {content?.subtitle || 'Our Complete Fleet'}
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-[#132238] mb-4">
-            Machinery for Every Mission
+            {content?.title || 'Machinery for Every Mission'}
           </h2>
           <p className="text-slate-500 text-lg">
-            Explore our extensive lineup of heavy-duty equipment ready to be dispatched to your site.
+            {content?.desc || 'Explore our extensive lineup of heavy-duty equipment ready to be dispatched to your site.'}
           </p>
         </div>
 

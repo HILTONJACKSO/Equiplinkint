@@ -71,6 +71,42 @@
         "title": "Ready to Upgrade Your Next Project?",
         "desc": "Join hundreds of contractors and project managers who trust Equiplink for top-tier heavy machinery, reliable transport, and unmatched service.",
         "image": "/images/hero_excavator_sunset.png"
+      },
+      "machineShowcase": {
+        "subtitle": "OUR COMPLETE FLEET",
+        "title": "Machinery for Every Mission",
+        "desc": "Explore our extensive lineup of heavy-duty equipment ready to be dispatched to your site."
+      },
+      "partnerLogos": {
+        "title": "Trusted by Top Equipment Manufacturers & Partners"
+      }
+    },
+    "equipment": {
+      "hero": {
+        "title": "Find <span className=\"text-amber-500\">Equipment</span>",
+        "subtitle": "Browse available heavy machinery and logistics services across Liberia. Top-tier brands maintained to the highest standards.",
+        "image": "/images/cat_336_excavator.png"
+      }
+    },
+    "transport": {
+      "hero": {
+        "title": "Heavy Transport & <span className=\"text-amber-500\">Logistics</span>",
+        "subtitle": "Move your heaviest equipment securely across Liberia. From the Freeport of Monrovia to the most remote mining sites in Nimba, our specialized transport fleet is ready to deploy.",
+        "image": "/images/fleet_lowbed_trailer.png"
+      }
+    },
+    "services": {
+      "hero": {
+        "title": "Comprehensive <span className=\"text-amber-500\">Services</span>",
+        "subtitle": "Beyond equipment rental, we provide end-to-end support for your projects. From certified operators to on-site maintenance, we ensure your operations never stop.",
+        "image": "/images/media__1788003157033.jpg"
+      }
+    },
+    "listEquipment": {
+      "hero": {
+        "title": "Turn Your Idle Equipment Into <span className=\"text-amber-500\">Revenue</span>",
+        "subtitle": "Join Liberia's premier heavy machinery network. List your excavators, bulldozers, and trucks to reach verified contractors and maximize your fleet's ROI.",
+        "image": "/images/cat_336_excavator.png"
       }
     }
   }

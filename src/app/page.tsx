@@ -170,7 +170,7 @@ export default async function Home() {
 
         {/* INTERACTIVE MACHINE SHOWCASE SECTION */}
         <div className="pt-32 md:pt-24 border-b border-[#E2E8F0]">
-          <MachineShowcase />
+          <MachineShowcase content={cms?.pages?.home?.machineShowcase} />
         </div>
 
         {/* TRUST BADGES SECTION */}
@@ -529,7 +529,7 @@ export default async function Home() {
         {/* PARTNER LOGOS SECTION */}
         <section className="py-12 bg-white border-t border-[#E2E8F0]">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <p className="text-sm font-bold text-slate-400 tracking-widest uppercase mb-8">Trusted by Top Equipment Manufacturers & Partners</p>
+            <p className="text-sm font-bold text-slate-400 tracking-widest uppercase mb-8">{cms?.pages?.home?.partnerLogos?.title || "Trusted by Top Equipment Manufacturers & Partners"}</p>
             <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-50 hover:opacity-100 grayscale hover:grayscale-0 transition-all duration-500">
               <div className="font-heading font-black text-2xl tracking-tighter text-[#132238]">VOLVO</div>
               <div className="font-sans font-bold text-2xl italic tracking-wide text-[#132238]">KOMATSU</div>

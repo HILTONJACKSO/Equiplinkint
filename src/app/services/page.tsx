@@ -4,8 +4,16 @@ import { Button } from "@/components/ui/button";
 import { AnimatedStep } from "@/components/ui/animated-step";
 import Link from "next/link";
 import { Wrench, ShieldCheck, Users, Activity, Settings, ArrowRight, Zap, GraduationCap, MapPin } from "lucide-react";
+import { getSiteContent } from "@/app/actions/cms";
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const cms = await getSiteContent();
+  const heroData = cms?.pages?.services?.hero || {
+    title: "Specialized Support & <span className=\"text-amber-500\">Maintenance</span>",
+    subtitle: "Keep your projects running smoothly. Beyond just equipment rental, we provide industry-leading maintenance, operator training, and fleet management services across Liberia.",
+    image: "/images/cat_336_excavator.png"
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
       <Navbar />
@@ -13,18 +21,16 @@ export default function ServicesPage() {
       {/* Dark Premium Hero Section */}
       <main className="flex-1">
         <div className="bg-[#132238] pt-20 pb-32 border-b border-[#0B1220] relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/images/cat_336_excavator.png')] opacity-10 mix-blend-overlay bg-cover bg-center" />
+          <div className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay" style={{ backgroundImage: `url('${heroData.image}')` }} />
           <div className="max-w-7xl mx-auto px-4 relative z-10">
             <AnimatedStep>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6 bg-blue-500/20 text-blue-400 border border-blue-500/30">
                 <Settings className="w-4 h-4" />
                 Comprehensive Support
               </div>
-              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 font-heading text-white max-w-3xl leading-tight">
-                Specialized Support & <span className="text-amber-500">Maintenance</span>
-              </h1>
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 font-heading text-white max-w-3xl leading-tight" dangerouslySetInnerHTML={{ __html: heroData.title }} />
               <p className="text-lg text-slate-300 max-w-2xl leading-relaxed mb-8">
-                Keep your projects running smoothly. Beyond just equipment rental, we provide industry-leading maintenance, operator training, and fleet management services across Liberia.
+                {heroData.subtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button render={<Link href="/request" />} nativeButton={false} className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-[#132238] h-14 px-8 rounded-xl font-bold text-lg shadow-lg shadow-amber-500/20 hover:-translate-y-1 transition-all">

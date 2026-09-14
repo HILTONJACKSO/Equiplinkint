@@ -38,7 +38,7 @@ export default function SiteEditorForm({ initialData }: { initialData: any }) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   
-  const [activeTab, setActiveTab] = useState<'global' | 'home'>('home');
+  const [activeTab, setActiveTab] = useState<string>('home');
   const [formData, setFormData] = useState(initialData);
   const [uploadingImage, setUploadingImage] = useState<string | null>(null);
 
@@ -212,23 +212,27 @@ export default function SiteEditorForm({ initialData }: { initialData: any }) {
 
         <main className="flex-1 p-4 md:p-8 max-w-5xl mx-auto w-full">
           {/* Tabs */}
-          <div className="flex space-x-1 p-1 bg-slate-200/50 rounded-xl mb-8 w-fit">
-            <button
-              onClick={() => setActiveTab('home')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all ${
-                activeTab === 'home' ? 'bg-white text-indigo-700 shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
-              }`}
-            >
-              <Home className="h-4 w-4" /> Home Page
-            </button>
-            <button
-              onClick={() => setActiveTab('global')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all ${
-                activeTab === 'global' ? 'bg-white text-indigo-700 shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
-              }`}
-            >
-              <Globe className="h-4 w-4" /> Global Layout
-            </button>
+          <div className="flex flex-wrap gap-2 p-1.5 bg-slate-200/50 rounded-xl mb-8 w-full shadow-inner border border-slate-200/60">
+            {[
+              { id: 'global', label: 'Global Layout', icon: Globe },
+              { id: 'home', label: 'Home Page', icon: Home },
+              { id: 'equipment', label: 'Find Equipment', icon: Package },
+              { id: 'transport', label: 'Transport', icon: Settings }, // Reusing an icon for transport
+              { id: 'services', label: 'Services', icon: Users },
+              { id: 'listEquipment', label: 'List Equipment', icon: Edit3 }
+            ].map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  activeTab === tab.id 
+                    ? 'bg-white text-indigo-700 shadow border border-slate-200/50' 
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-300/40'
+                }`}
+              >
+                <tab.icon className="h-4 w-4" /> {tab.label}
+              </button>
+            ))}
           </div>
 
           <div className="pb-24">
@@ -468,6 +472,123 @@ export default function SiteEditorForm({ initialData }: { initialData: any }) {
                   </div>
                 </SectionCard>
 
+                {/* MACHINE SHOWCASE */}
+                <SectionCard title="Machine Showcase (Our Complete Fleet)">
+                  <div className="space-y-4">
+                    <div className="grid gap-6 md:grid-cols-2">
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-700">Subtitle</label>
+                        <Input value={formData.pages?.home?.machineShowcase?.subtitle || ''} onChange={e => updateField(['pages', 'home', 'machineShowcase', 'subtitle'], e.target.value)} className="bg-slate-50 uppercase" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-700">Title</label>
+                        <Input value={formData.pages?.home?.machineShowcase?.title || ''} onChange={e => updateField(['pages', 'home', 'machineShowcase', 'title'], e.target.value)} className="bg-slate-50 font-semibold" />
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-slate-700">Description</label>
+                      <Textarea value={formData.pages?.home?.machineShowcase?.desc || ''} onChange={e => updateField(['pages', 'home', 'machineShowcase', 'desc'], e.target.value)} rows={2} className="bg-slate-50" />
+                    </div>
+                  </div>
+                </SectionCard>
+
+                {/* PARTNER LOGOS */}
+                <SectionCard title="Partner Logos / Trusted By">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-slate-700">Title</label>
+                    <Input value={formData.pages?.home?.partnerLogos?.title || ''} onChange={e => updateField(['pages', 'home', 'partnerLogos', 'title'], e.target.value)} className="bg-slate-50 uppercase tracking-widest text-xs" />
+                  </div>
+                </SectionCard>
+
+              </div>
+            )}
+
+            {activeTab === 'equipment' && (
+              <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <SectionCard title="Find Equipment - Hero Section">
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-700">Title</label>
+                        <Input value={formData.equipment?.hero?.title || ''} onChange={e => updateField(['equipment', 'hero', 'title'], e.target.value)} className="bg-slate-50 font-semibold" />
+                        <p className="text-xs text-slate-500">HTML tags allowed, e.g., &lt;span className="text-amber-500"&gt;</p>
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-700">Subtitle</label>
+                        <Textarea value={formData.equipment?.hero?.subtitle || ''} onChange={e => updateField(['equipment', 'hero', 'subtitle'], e.target.value)} rows={3} className="bg-slate-50" />
+                      </div>
+                    </div>
+                    <div>
+                      <ImageUploader label="Background Image" path={['equipment', 'hero', 'image']} value={formData.equipment?.hero?.image || ''} />
+                    </div>
+                  </div>
+                </SectionCard>
+              </div>
+            )}
+
+            {activeTab === 'transport' && (
+              <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <SectionCard title="Transport - Hero Section">
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-700">Title</label>
+                        <Input value={formData.transport?.hero?.title || ''} onChange={e => updateField(['transport', 'hero', 'title'], e.target.value)} className="bg-slate-50 font-semibold" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-700">Subtitle</label>
+                        <Textarea value={formData.transport?.hero?.subtitle || ''} onChange={e => updateField(['transport', 'hero', 'subtitle'], e.target.value)} rows={3} className="bg-slate-50" />
+                      </div>
+                    </div>
+                    <div>
+                      <ImageUploader label="Background Image" path={['transport', 'hero', 'image']} value={formData.transport?.hero?.image || ''} />
+                    </div>
+                  </div>
+                </SectionCard>
+              </div>
+            )}
+
+            {activeTab === 'services' && (
+              <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <SectionCard title="Services - Hero Section">
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-700">Title</label>
+                        <Input value={formData.services?.hero?.title || ''} onChange={e => updateField(['services', 'hero', 'title'], e.target.value)} className="bg-slate-50 font-semibold" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-700">Subtitle</label>
+                        <Textarea value={formData.services?.hero?.subtitle || ''} onChange={e => updateField(['services', 'hero', 'subtitle'], e.target.value)} rows={3} className="bg-slate-50" />
+                      </div>
+                    </div>
+                    <div>
+                      <ImageUploader label="Background Image" path={['services', 'hero', 'image']} value={formData.services?.hero?.image || ''} />
+                    </div>
+                  </div>
+                </SectionCard>
+              </div>
+            )}
+
+            {activeTab === 'listEquipment' && (
+              <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <SectionCard title="List Equipment - Hero Section">
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-700">Title</label>
+                        <Input value={formData.listEquipment?.hero?.title || ''} onChange={e => updateField(['listEquipment', 'hero', 'title'], e.target.value)} className="bg-slate-50 font-semibold" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-slate-700">Subtitle</label>
+                        <Textarea value={formData.listEquipment?.hero?.subtitle || ''} onChange={e => updateField(['listEquipment', 'hero', 'subtitle'], e.target.value)} rows={3} className="bg-slate-50" />
+                      </div>
+                    </div>
+                    <div>
+                      <ImageUploader label="Background Image" path={['listEquipment', 'hero', 'image']} value={formData.listEquipment?.hero?.image || ''} />
+                    </div>
+                  </div>
+                </SectionCard>
               </div>
             )}
           </div>
