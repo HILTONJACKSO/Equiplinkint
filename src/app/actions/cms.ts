@@ -1,8 +1,7 @@
-'use server';
-
 import fs from 'fs';
 import path from 'path';
 
+// Standard utility function (NOT a server action) for Server Components
 export async function getSiteContent() {
   const filePath = path.join(process.cwd(), 'src/data/siteContent.json');
   try {
@@ -14,7 +13,9 @@ export async function getSiteContent() {
   }
 }
 
+// Server action (must have 'use server')
 export async function updateSiteContent(newData: any) {
+  'use server';
   const filePath = path.join(process.cwd(), 'src/data/siteContent.json');
   try {
     // Read current data
