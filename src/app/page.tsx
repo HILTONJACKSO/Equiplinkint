@@ -35,10 +35,11 @@ import { getSiteContent } from '@/app/actions/cms';
 export default async function Home() {
   const featuredEquipment = mockEquipment.slice(0, 3);
   const cms = await getSiteContent();
-  const hero = cms?.hero || {
+  const hero = cms?.pages?.home?.hero || {
     title1: "Move Big.",
     title2: "Build Bigger.",
     subtitle: "Find trusted heavy equipment, trucks, operators, and logistics services across Liberia — all in one place.",
+    image: "/images/hero_excavator_right.png"
   };
   
   return (
@@ -49,7 +50,7 @@ export default async function Home() {
         <section className="relative w-full min-h-[50vh] flex flex-col pt-16 pb-32 z-20 -mt-16">
           <div className="absolute inset-0 overflow-hidden bg-[#0B1220]">
             <Image 
-              src="/images/hero_excavator_right.png"
+              src={hero.image}
               alt="Excavator Hero"
               fill
               className="object-cover object-right lg:object-[85%_center]"

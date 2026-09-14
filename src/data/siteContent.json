@@ -8,9 +8,14 @@
     "phone": "+231 77 000 0000",
     "address": "Monrovia, Liberia"
   },
-  "hero": {
-    "title1": "Move Big.",
-    "title2": "Build Bigger.",
-    "subtitle": "Find trusted heavy equipment, trucks, operators, and logistics services across Liberia — all in one place."
+  "pages": {
+    "home": {
+      "hero": {
+        "title1": "Move Big.",
+        "title2": "Build Bigger.",
+        "subtitle": "Find trusted heavy equipment, trucks, operators, and logistics services across Liberia — all in one place.",
+        "image": "/images/hero_excavator_right.png"
+      }
+    }
   }
 }

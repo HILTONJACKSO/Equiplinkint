@@ -8,7 +8,11 @@ export default async function SiteEditorPage() {
   const initialData = data || {
     header: { phone: '' },
     footer: { aboutText: '', email: '', phone: '', address: '' },
-    hero: { title1: '', title2: '', subtitle: '' }
+    pages: {
+      home: {
+        hero: { title1: '', title2: '', subtitle: '', image: '' }
+      }
+    }
   };
 
   return <SiteEditorForm initialData={initialData} />;
