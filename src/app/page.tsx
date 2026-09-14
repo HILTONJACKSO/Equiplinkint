@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { mockEquipment } from "@/lib/data";
 import { AnimatedStep } from "@/components/ui/animated-step";
 import { MachineShowcase } from "@/components/ui/machine-showcase";
 import Link from "next/link";
@@ -31,10 +30,12 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { getSiteContent } from '@/app/actions/cms';
+import { getInventory } from '@/app/actions/inventory';
 
 export default async function Home() {
-  const featuredEquipment = mockEquipment.slice(0, 3);
   const cms = await getSiteContent();
+  const inventory = await getInventory();
+  
   const hero = cms?.pages?.home?.hero || {
     title1: "Move Big.",
     title2: "Build Bigger.",
@@ -328,41 +329,8 @@ export default async function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  id: "eq-1",
-                  title: "Caterpillar 336 Excavator",
-                  category: "Excavators",
-                  specs: ["36,000 kg", "311 hp"],
-                  rate: "$450",
-                  image: "/images/cat_336_excavator.png"
-                },
-                {
-                  id: "eq-2",
-                  title: "Volvo A40G Hauler",
-                  category: "Articulated Dump Trucks",
-                  specs: ["39,000 kg Payload", "469 hp"],
-                  rate: "$650",
-                  image: "/images/volvo_a40g_hauler.png"
-                },
-                {
-                  id: "eq-3",
-                  title: "Komatsu D65 Bulldozer",
-                  category: "Track Bulldozers",
-                  specs: ["22,000 kg", "217 hp"],
-                  rate: "$550",
-                  image: "/images/komatsu_d65_bulldozer.png"
-                },
-                {
-                  id: "eq-4",
-                  title: "JCB 3CX Backhoe",
-                  category: "Backhoe Loaders",
-                  specs: ["8,000 kg", "92 hp"],
-                  rate: "$300",
-                  image: "/images/jcb_3cx_backhoe.png"
-                }
-              ].map((machine, idx) => (
-                <AnimatedStep key={idx} delay={idx * 0.1}>
+              {inventory.slice(0, 4).map((machine, idx) => (
+                <AnimatedStep key={machine.id || idx} delay={idx * 0.1}>
                   <div className="group relative bg-white rounded-2xl overflow-hidden shadow-lg border border-transparent hover:border-amber-500/50 hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col h-full">
                     <div className="relative h-48 w-full overflow-hidden bg-gray-100">
                       <Image src={machine.image} alt={machine.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
@@ -375,7 +343,7 @@ export default async function Home() {
                       <h3 className="font-bold text-lg text-[#132238] leading-tight mb-4">{machine.title}</h3>
                       
                       <div className="flex gap-2 mb-6 flex-wrap">
-                        {machine.specs.map((spec, i) => (
+                        {machine.specs?.map((spec, i) => (
                           <span key={i} className="bg-[#F8FAFC] border border-[#E2E8F0] text-[#64748B] text-xs px-2 py-1 rounded">
                             {spec}
                           </span>

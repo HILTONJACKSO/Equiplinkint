@@ -1,0 +1,34 @@
+[
+  {
+    "id": "eq-1",
+    "title": "Caterpillar 336 Excavator",
+    "category": "Excavators",
+    "specs": ["36,000 kg", "311 hp"],
+    "rate": "$450",
+    "image": "/images/cat_336_excavator.png"
+  },
+  {
+    "id": "eq-2",
+    "title": "Volvo A40G Hauler",
+    "category": "Articulated Dump Trucks",
+    "specs": ["39,000 kg Payload", "469 hp"],
+    "rate": "$650",
+    "image": "/images/volvo_a40g_hauler.png"
+  },
+  {
+    "id": "eq-3",
+    "title": "Komatsu D65 Bulldozer",
+    "category": "Track Bulldozers",
+    "specs": ["22,000 kg", "217 hp"],
+    "rate": "$550",
+    "image": "/images/komatsu_d65_bulldozer.png"
+  },
+  {
+    "id": "eq-4",
+    "title": "JCB 3CX Backhoe",
+    "category": "Backhoe Loaders",
+    "specs": ["8,000 kg", "92 hp"],
+    "rate": "$300",
+    "image": "/images/jcb_3cx_backhoe.png"
+  }
+]
