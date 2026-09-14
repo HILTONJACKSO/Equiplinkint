@@ -23,7 +23,7 @@ export function EquipmentCard({ equipment }: { equipment: Equipment }) {
           className="object-cover group-hover:scale-105 transition-transform duration-700"
         />
         {equipment.verified && (
-          <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 flex items-center gap-1 rounded-md text-xs font-semibold text-emerald-600 shadow-sm">
+          <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 flex items-center gap-1 rounded-md text-xs font-semibold text-blue-600 shadow-sm">
             <ShieldCheck className="h-3 w-3" />
             Verified
           </div>
@@ -53,7 +53,7 @@ export function EquipmentCard({ equipment }: { equipment: Equipment }) {
             {equipment.condition} Condition
           </Badge>
           {equipment.operatorAvailable && (
-            <Badge variant="outline" className="text-emerald-600 border-emerald-200 bg-emerald-50">
+            <Badge variant="outline" className="text-blue-600 border-blue-200 bg-blue-50">
               <User className="h-3 w-3 mr-1" /> Operator
             </Badge>
           )}

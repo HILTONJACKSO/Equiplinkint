@@ -60,13 +60,13 @@ export default async function ServicesPage() {
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3 text-slate-600 font-medium">
-                    <span className="w-5 h-5 flex items-center justify-center bg-emerald-100 rounded-full text-emerald-600"><Zap className="w-3 h-3" /></span> Rapid diagnostics & repair
+                    <span className="w-5 h-5 flex items-center justify-center bg-blue-100 rounded-full text-blue-600"><Zap className="w-3 h-3" /></span> Rapid diagnostics & repair
                   </li>
                   <li className="flex items-center gap-3 text-slate-600 font-medium">
-                    <span className="w-5 h-5 flex items-center justify-center bg-emerald-100 rounded-full text-emerald-600"><Zap className="w-3 h-3" /></span> Genuine OEM replacement parts
+                    <span className="w-5 h-5 flex items-center justify-center bg-blue-100 rounded-full text-blue-600"><Zap className="w-3 h-3" /></span> Genuine OEM replacement parts
                   </li>
                   <li className="flex items-center gap-3 text-slate-600 font-medium">
-                    <span className="w-5 h-5 flex items-center justify-center bg-emerald-100 rounded-full text-emerald-600"><Zap className="w-3 h-3" /></span> Preventative servicing schedules
+                    <span className="w-5 h-5 flex items-center justify-center bg-blue-100 rounded-full text-blue-600"><Zap className="w-3 h-3" /></span> Preventative servicing schedules
                   </li>
                 </ul>
                 <Button variant="outline" className="w-full border-slate-200 text-[#132238] hover:bg-slate-50 h-14 rounded-xl font-bold text-lg mt-auto">
@@ -127,7 +127,7 @@ export default async function ServicesPage() {
                     <div className="space-y-4">
                       <div className="bg-white p-4 rounded-xl border border-slate-200 flex justify-between items-center shadow-sm">
                         <span className="text-slate-600 font-medium flex items-center gap-2"><MapPin className="w-4 h-4 text-amber-500"/> Real-time Location Tracking</span>
-                        <span className="font-bold text-emerald-500">Active</span>
+                        <span className="font-bold text-blue-500">Active</span>
                       </div>
                       <div className="bg-white p-4 rounded-xl border border-slate-200 flex justify-between items-center shadow-sm">
                         <span className="text-slate-600 font-medium flex items-center gap-2"><Activity className="w-4 h-4 text-amber-500"/> Fuel Consumption</span>

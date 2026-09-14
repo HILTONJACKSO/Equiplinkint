@@ -194,8 +194,8 @@ function RequestForm() {
     return (
       <div className="bg-white rounded-[2rem] border border-slate-200 p-12 shadow-2xl max-w-lg w-full text-center relative z-10 mx-auto">
         <div className="flex justify-center mb-6">
-          <div className="w-24 h-24 rounded-full bg-emerald-100 flex items-center justify-center">
-            <CheckCircle2 className="w-12 h-12 text-emerald-500" />
+          <div className="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center">
+            <CheckCircle2 className="w-12 h-12 text-blue-500" />
           </div>
         </div>
         <h2 className="text-3xl font-bold mb-4 font-heading text-[#132238]">Request Submitted!</h2>
@@ -222,12 +222,12 @@ function RequestForm() {
         return (
           <div key={step.id} className="flex flex-col items-center gap-3 bg-transparent shrink-0">
             <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center transition-all duration-300 ${
-              isCompleted ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30' : isActive ? 'bg-amber-500 text-[#132238] scale-110 shadow-lg shadow-amber-500/30 ring-4 ring-white' : 'bg-slate-100 text-slate-400'
+              isCompleted ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/30' : isActive ? 'bg-amber-500 text-[#132238] scale-110 shadow-lg shadow-amber-500/30 ring-4 ring-white' : 'bg-slate-100 text-slate-400'
             }`}>
               {isCompleted ? <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" /> : <Icon className="w-4 h-4 sm:w-5 sm:h-5" />}
             </div>
             <span className={`text-xs font-bold uppercase tracking-widest hidden sm:block transition-colors ${
-              isActive ? 'text-[#132238]' : isCompleted ? 'text-emerald-600' : 'text-slate-400'
+              isActive ? 'text-[#132238]' : isCompleted ? 'text-blue-600' : 'text-slate-400'
             }`}>
               {step.label}
             </span>

@@ -59,7 +59,7 @@ const UPCOMING_JOBS = [
 function StatusBadge({ status }: { status: string }) {
   const styles: Record<string, string> = {
     pending: 'bg-amber-100 text-amber-700 border border-amber-200',
-    confirmed: 'bg-emerald-100 text-emerald-700 border border-emerald-200',
+    confirmed: 'bg-blue-100 text-blue-700 border border-blue-200',
     cancelled: 'bg-red-100 text-red-700 border border-red-200',
     completed: 'bg-blue-100 text-blue-700 border border-blue-200',
   };
@@ -105,7 +105,7 @@ export default function SupplierDashboard() {
           <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">W</div>
           <div className="flex-1 min-w-0">
             <div className="text-sm font-semibold text-primary truncate">West Africa Freight</div>
-            <div className="text-xs text-muted-foreground flex items-center gap-1"><ShieldCheck className="h-3 w-3 text-emerald-500" /> Verified</div>
+            <div className="text-xs text-muted-foreground flex items-center gap-1"><ShieldCheck className="h-3 w-3 text-blue-500" /> Verified</div>
           </div>
         </div>
       </div>
@@ -181,7 +181,7 @@ export default function SupplierDashboard() {
                   </div>
                   <div>
                     <div className="text-2xl md:text-3xl font-bold font-heading text-primary">{stat.value}</div>
-                    <div className={`flex items-center gap-1 mt-1 text-xs font-medium ${stat.positive ? 'text-emerald-600' : 'text-amber-600'}`}>
+                    <div className={`flex items-center gap-1 mt-1 text-xs font-medium ${stat.positive ? 'text-blue-600' : 'text-amber-600'}`}>
                       <TrendingUp className="h-3 w-3" />
                       {stat.trend}
                     </div>
@@ -218,7 +218,7 @@ export default function SupplierDashboard() {
                       <span>{req.duration}</span>
                     </div>
                     <div className="flex gap-2 mt-3">
-                      <Button size="sm" className="bg-emerald-500 hover:bg-emerald-600 text-white rounded-full h-7 px-3 text-xs">Accept</Button>
+                      <Button size="sm" className="bg-blue-500 hover:bg-blue-600 text-white rounded-full h-7 px-3 text-xs">Accept</Button>
                       <Button size="sm" variant="outline" className="rounded-full h-7 px-3 text-xs border-border text-muted-foreground hover:text-red-600 hover:border-red-200">Decline</Button>
                     </div>
                   </div>
@@ -230,7 +230,7 @@ export default function SupplierDashboard() {
             <section className="bg-white rounded-2xl border border-border">
               <div className="flex items-center justify-between px-6 py-5 border-b border-border/50">
                 <h2 className="font-heading font-bold text-lg text-primary flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-emerald-500" /> Upcoming Jobs
+                  <CheckCircle2 className="h-5 w-5 text-blue-500" /> Upcoming Jobs
                 </h2>
                 <Link href="/supplier/bookings" className="text-sm text-amber-600 hover:text-amber-700 font-medium">View All</Link>
               </div>

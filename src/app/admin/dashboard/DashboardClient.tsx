@@ -61,7 +61,7 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
 
   function StatusPill({ status }: { status: string }) {
     const map: Record<string, string> = {
-      active: 'bg-emerald-100 text-emerald-700',
+      active: 'bg-blue-100 text-blue-700',
       pending: 'bg-amber-100 text-amber-700',
       completed: 'bg-blue-100 text-blue-700',
       cancelled: 'bg-red-100 text-red-700',
@@ -177,7 +177,7 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
                     </div>
                   </div>
                   <div className="text-2xl font-bold font-sans text-slate-900">{kpi.value}</div>
-                  <div className={`flex items-center gap-1.5 text-xs font-semibold ${kpi.positive ? 'text-emerald-600 bg-emerald-50' : 'text-red-600 bg-red-50'} w-fit px-2 py-0.5 rounded-full`}>
+                  <div className={`flex items-center gap-1.5 text-xs font-semibold ${kpi.positive ? 'text-blue-600 bg-blue-50' : 'text-red-600 bg-red-50'} w-fit px-2 py-0.5 rounded-full`}>
                     {kpi.positive ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
                     {kpi.change}
                   </div>
@@ -224,7 +224,7 @@ export function DashboardClient({ equipment = [] }: { equipment: any[] }) {
                         <p className="text-xs text-slate-500 mt-0.5">{v.type} · {v.docs} docs · {v.submitted}</p>
                       </div>
                       <div className="flex items-center gap-1 shrink-0">
-                        <Button size="icon" variant="ghost" className="h-8 w-8 text-emerald-600 hover:bg-emerald-50 rounded-full">
+                        <Button size="icon" variant="ghost" className="h-8 w-8 text-blue-600 hover:bg-blue-50 rounded-full">
                           <CheckCircle2 className="h-4 w-4" />
                         </Button>
                         <Button size="icon" variant="ghost" className="h-8 w-8 text-red-500 hover:bg-red-50 rounded-full">

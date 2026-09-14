@@ -102,8 +102,8 @@ export default function HowItWorksPage() {
               <div className="absolute inset-0 bg-[url('/images/fleet_semi_truck.png')] opacity-5 mix-blend-overlay bg-cover bg-center" />
               
               <div className="relative z-10 border-b border-white/10 p-8 md:p-12 text-center">
-                <div className="w-20 h-20 rounded-3xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-6">
-                  <Tractor className="w-10 h-10 text-emerald-400" />
+                <div className="w-20 h-20 rounded-3xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mx-auto mb-6">
+                  <Tractor className="w-10 h-10 text-blue-400" />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-white font-heading mb-4">For Equipment Owners</h2>
                 <p className="text-slate-300 text-lg max-w-2xl mx-auto">Turn your idle machinery into a reliable revenue stream safely and securely.</p>
@@ -115,7 +115,7 @@ export default function HowItWorksPage() {
                   
                   {/* Step 1 */}
                   <div className="relative z-10 flex flex-col items-center text-center">
-                    <div className="w-24 h-24 rounded-full bg-[#1e3454] border-4 border-[#2a456e] shadow-xl flex items-center justify-center mb-6 text-emerald-400 font-bold text-2xl">
+                    <div className="w-24 h-24 rounded-full bg-[#1e3454] border-4 border-[#2a456e] shadow-xl flex items-center justify-center mb-6 text-blue-400 font-bold text-2xl">
                       <ClipboardList className="w-8 h-8" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-3">1. List Your Fleet</h3>
@@ -124,7 +124,7 @@ export default function HowItWorksPage() {
 
                   {/* Step 2 */}
                   <div className="relative z-10 flex flex-col items-center text-center">
-                    <div className="w-24 h-24 rounded-full bg-[#1e3454] border-4 border-[#2a456e] shadow-xl flex items-center justify-center mb-6 text-emerald-400 font-bold text-2xl">
+                    <div className="w-24 h-24 rounded-full bg-[#1e3454] border-4 border-[#2a456e] shadow-xl flex items-center justify-center mb-6 text-blue-400 font-bold text-2xl">
                       <Handshake className="w-8 h-8" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-3">2. Approve Requests</h3>
@@ -133,7 +133,7 @@ export default function HowItWorksPage() {
 
                   {/* Step 3 */}
                   <div className="relative z-10 flex flex-col items-center text-center">
-                    <div className="w-24 h-24 rounded-full bg-[#1e3454] border-4 border-[#2a456e] shadow-xl flex items-center justify-center mb-6 text-emerald-400 font-bold text-2xl">
+                    <div className="w-24 h-24 rounded-full bg-[#1e3454] border-4 border-[#2a456e] shadow-xl flex items-center justify-center mb-6 text-blue-400 font-bold text-2xl">
                       <TrendingUp className="w-8 h-8" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-3">3. Earn Revenue</h3>
@@ -142,7 +142,7 @@ export default function HowItWorksPage() {
                 </div>
 
                 <div className="mt-16 text-center">
-                  <Button render={<Link href="/list-equipment" />} nativeButton={false} className="w-full md:w-auto bg-emerald-500 hover:bg-emerald-400 text-[#132238] h-14 px-10 rounded-xl font-bold text-lg shadow-lg shadow-emerald-500/20 hover:-translate-y-1 transition-all">
+                  <Button render={<Link href="/list-equipment" />} nativeButton={false} className="w-full md:w-auto bg-blue-500 hover:bg-blue-400 text-[#132238] h-14 px-10 rounded-xl font-bold text-lg shadow-lg shadow-blue-500/20 hover:-translate-y-1 transition-all">
                     Become a Supplier <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </div>

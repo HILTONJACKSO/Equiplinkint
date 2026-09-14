@@ -195,7 +195,7 @@ export default function SiteEditorForm({ initialData }: { initialData: any }) {
           </div>
           <div className="flex items-center gap-3">
             {success && (
-              <span className="flex items-center gap-2 text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
+              <span className="flex items-center gap-2 text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
                 <CheckCircle2 className="h-4 w-4" /> Saved
               </span>
             )}

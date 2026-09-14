@@ -134,7 +134,7 @@ export function FilterSidebar({ onApply }: FilterSidebarProps) {
               onChange={(e) => setFilters(prev => ({ ...prev, verifiedOnly: e.target.checked }))}
               className="rounded border-slate-300 text-amber-500 focus:ring-amber-500 w-4 h-4 cursor-pointer" 
             />
-            <span className="group-hover:text-amber-600 transition-colors font-bold text-emerald-600">Verified Supplier Only</span>
+            <span className="group-hover:text-amber-600 transition-colors font-bold text-blue-600">Verified Supplier Only</span>
           </label>
         </div>
       </div>

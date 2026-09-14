@@ -34,7 +34,7 @@ export default async function ListEquipmentPage() {
           <div className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay" style={{ backgroundImage: `url('${heroData.image}')` }} />
           <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
             <AnimatedStep>
-              <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+              <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6 bg-blue-500/20 text-blue-400 border border-blue-500/30">
                 <Banknote className="w-4 h-4" />
                 Zero Upfront Fees
               </div>
@@ -59,8 +59,8 @@ export default async function ListEquipmentPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <AnimatedStep delay={0.1}>
               <div className="bg-white p-6 md:p-10 rounded-[2rem] border border-slate-200 shadow-2xl hover:-translate-y-2 transition-transform h-full flex flex-col items-center text-center">
-                <div className="w-20 h-20 rounded-[1.5rem] bg-emerald-500/10 flex items-center justify-center mb-6">
-                  <Banknote className="w-10 h-10 text-emerald-500" />
+                <div className="w-20 h-20 rounded-[1.5rem] bg-blue-500/10 flex items-center justify-center mb-6">
+                  <Banknote className="w-10 h-10 text-blue-500" />
                 </div>
                 <h3 className="text-2xl font-bold text-[#132238] mb-4 font-heading">Guaranteed Payments</h3>
                 <p className="text-slate-500 leading-relaxed">
@@ -154,9 +154,9 @@ export default async function ListEquipmentPage() {
                   Our advanced Supplier Dashboard gives you real-time visibility into your fleet's utilization, upcoming bookings, and revenue metrics.
                 </p>
                 <ul className="space-y-4 mb-10">
-                  <li className="flex items-center gap-3 text-lg font-medium"><CheckCircle2 className="w-6 h-6 text-emerald-400" /> Manage availability calendars</li>
-                  <li className="flex items-center gap-3 text-lg font-medium"><CheckCircle2 className="w-6 h-6 text-emerald-400" /> Dynamic pricing controls</li>
-                  <li className="flex items-center gap-3 text-lg font-medium"><CheckCircle2 className="w-6 h-6 text-emerald-400" /> Automated invoicing</li>
+                  <li className="flex items-center gap-3 text-lg font-medium"><CheckCircle2 className="w-6 h-6 text-blue-400" /> Manage availability calendars</li>
+                  <li className="flex items-center gap-3 text-lg font-medium"><CheckCircle2 className="w-6 h-6 text-blue-400" /> Dynamic pricing controls</li>
+                  <li className="flex items-center gap-3 text-lg font-medium"><CheckCircle2 className="w-6 h-6 text-blue-400" /> Automated invoicing</li>
                 </ul>
                 <Button render={<Link href="/register" />} nativeButton={false} className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-[#132238] h-14 px-8 rounded-xl font-bold text-lg">
                   Get Started Now <ArrowRight className="w-5 h-5 ml-2" />
@@ -170,7 +170,7 @@ export default async function ListEquipmentPage() {
                       <h4 className="font-bold text-[#132238]">Monthly Revenue</h4>
                       <p className="text-sm text-slate-500">Aug 2026</p>
                     </div>
-                    <div className="text-2xl font-bold text-emerald-500">$12,450</div>
+                    <div className="text-2xl font-bold text-blue-500">$12,450</div>
                   </div>
                   <div className="space-y-3">
                     <div className="bg-slate-50 p-4 rounded-xl flex items-center justify-between border border-slate-100">

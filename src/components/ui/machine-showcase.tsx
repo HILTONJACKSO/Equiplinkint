@@ -200,8 +200,8 @@ export function MachineShowcase({ content }: { content?: any }) {
                   >
                     {machines[activeIndex].features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-3">
-                        <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                        <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+                          <CheckCircle2 className="w-4 h-4 text-blue-600" />
                         </div>
                         <span className="font-semibold text-[#132238]">{feature}</span>
                       </div>

@@ -57,7 +57,7 @@ export default async function EquipmentDetailPage({ params }: { params: Promise<
                   {equipment.verified && (
                     <>
                       <div className="h-6 w-px bg-slate-700 hidden sm:block"></div>
-                      <Badge className="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-sm py-1 px-3">
+                      <Badge className="bg-blue-500/20 text-blue-400 border border-blue-500/30 text-sm py-1 px-3">
                         <ShieldCheck className="h-4 w-4 mr-1.5" /> Verified
                       </Badge>
                     </>
@@ -214,7 +214,7 @@ export default async function EquipmentDetailPage({ params }: { params: Promise<
                   <div>
                     <div className="font-bold text-xl flex items-center gap-2 mb-1">
                       {equipment.supplierName}
-                      <ShieldCheck className="h-5 w-5 text-emerald-400" />
+                      <ShieldCheck className="h-5 w-5 text-blue-400" />
                     </div>
                     <div className="text-slate-400 font-medium">Verified Business Partner</div>
                   </div>
@@ -226,7 +226,7 @@ export default async function EquipmentDetailPage({ params }: { params: Promise<
                   </div>
                   <div className="bg-white/5 border border-white/10 p-4 rounded-2xl text-center">
                     <div className="font-bold text-3xl text-white mb-1">100%</div>
-                    <div className="text-emerald-400 text-sm font-semibold tracking-wide">RESPONSE RATE</div>
+                    <div className="text-blue-400 text-sm font-semibold tracking-wide">RESPONSE RATE</div>
                   </div>
                 </div>
                 <Button variant="outline" className="w-full border-white/20 hover:bg-white hover:text-[#132238] text-white h-14 rounded-xl font-bold text-lg transition-colors">
