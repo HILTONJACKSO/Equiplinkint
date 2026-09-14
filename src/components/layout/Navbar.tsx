@@ -1,13 +1,21 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Menu, Search, Tractor, User, PhoneCall } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import { getSiteContent } from '@/app/actions/cms';
+import { useEffect, useState } from 'react';
 
-export async function Navbar() {
-  const cms = await getSiteContent();
-  const phone = cms?.header?.phone || '+231 77 000 0000';
+export function Navbar() {
+  const [phone, setPhone] = useState('+231 77 000 0000');
+  
+  useEffect(() => {
+    getSiteContent().then(data => {
+      if (data?.header?.phone) setPhone(data.header.phone);
+    });
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#0B1220]/95 backdrop-blur-md supports-[backdrop-filter]:bg-[#0B1220]/90 border-b border-[#1e3454]">

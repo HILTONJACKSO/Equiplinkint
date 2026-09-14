@@ -1,17 +1,25 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Tractor, Mail, MapPin, PhoneCall } from 'lucide-react';
 import { getSiteContent } from '@/app/actions/cms';
+import { useEffect, useState } from 'react';
 
-export async function Footer() {
-  const cms = await getSiteContent();
-  const footer = cms?.footer || {
+export function Footer() {
+  const [footer, setFooter] = useState({
     aboutText: "Liberia's premier network for heavy machinery rental, specialized transport, and comprehensive maintenance support.",
     email: "hello@equiplink.com",
     phone: "+231 77 000 0000",
     address: "Monrovia, Liberia"
-  };
+  });
+
+  useEffect(() => {
+    getSiteContent().then(data => {
+      if (data?.footer) setFooter(data.footer);
+    });
+  }, []);
 
   return (
     <footer className="bg-[#05080f] border-t border-[#132238] text-white pt-12 md:pt-20 pb-8 md:pb-10">
