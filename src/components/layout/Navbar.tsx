@@ -53,6 +53,7 @@ export function Navbar() {
           <div className="hidden xl:flex items-center gap-2 mr-4 text-slate-400 border-r border-[#1e3454] pr-6">
             <PhoneCall className="w-4 h-4 text-amber-500" />
             <span className="text-sm font-bold">{phone}</span>
+          </div>
           <Button render={<Link href="/request" />} nativeButton={false} className="bg-amber-500 hover:bg-amber-400 text-[#0B1220] font-bold px-8 h-12 rounded-xl text-sm shadow-lg shadow-amber-500/20 hover:-translate-y-0.5 transition-all">
             Request Equipment
           </Button>
