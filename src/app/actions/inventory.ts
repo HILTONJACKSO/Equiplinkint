@@ -13,6 +13,7 @@ export type Equipment = {
   specs: string[];
   rate: string;
   image: string;
+  images?: string[];
   
   // 1. OWNER INFORMATION
   ownerName?: string;

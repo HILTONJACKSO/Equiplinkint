@@ -104,12 +104,19 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
   };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+
+    if (files.length > 6) {
+      alert("You can only upload up to 6 images at once.");
+      return;
+    }
 
     setUploadingImage(true);
     const data = new FormData();
-    data.append('file', file);
+    for (let i = 0; i < files.length; i++) {
+      data.append('files', files[i]);
+    }
 
     try {
       const res = await fetch('/api/upload', {
@@ -117,11 +124,18 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
         body: data,
       });
       const result = await res.json();
-      if (result.url) {
-        setFormData({ ...formData, image: result.url });
+      if (result.urls && result.urls.length > 0) {
+        setFormData({ 
+          ...formData, 
+          image: result.urls[0], 
+          images: result.urls 
+        });
+      } else {
+        alert(result.error || 'Upload failed');
       }
     } catch (err) {
       console.error('Upload failed', err);
+      alert('Upload failed. Images might be too large.');
     }
     setUploadingImage(false);
   };
@@ -468,21 +482,35 @@ export default function EquipmentClient({ initialData }: { initialData: Equipmen
                     </h3>
                     
                     <div className="space-y-2 mb-6">
-                      <label className="text-sm font-semibold text-slate-700">Primary Equipment Image (Upload)</label>
-                      <div className="flex justify-center rounded-lg border border-dashed border-slate-300 px-6 py-8 bg-slate-50 relative overflow-hidden group">
-                        {formData.image && (
-                          <div className="absolute inset-0 opacity-40 group-hover:opacity-20 transition-opacity">
-                            <Image src={formData.image} alt="Preview" fill className="object-cover" />
+                      <label className="text-sm font-semibold text-slate-700">Equipment Images (Upload up to 6)</label>
+                      <div className="flex flex-col items-center justify-center rounded-lg border border-dashed border-slate-300 px-6 py-8 bg-slate-50 relative overflow-hidden group">
+                        
+                        {/* Display uploaded images */}
+                        {formData.images && formData.images.length > 0 ? (
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full mb-6">
+                            {formData.images.map((imgUrl: string, idx: number) => (
+                              <div key={idx} className="relative aspect-video rounded-lg overflow-hidden border border-slate-200">
+                                <img src={imgUrl} alt={`Preview ${idx + 1}`} className="object-cover w-full h-full" />
+                              </div>
+                            ))}
                           </div>
-                        )}
-                        <div className="text-center relative z-10">
+                        ) : formData.image ? (
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full mb-6">
+                            <div className="relative aspect-video rounded-lg overflow-hidden border border-slate-200">
+                              <img src={formData.image} alt="Preview" className="object-cover w-full h-full" />
+                            </div>
+                          </div>
+                        ) : null}
+
+                        <div className="text-center relative z-10 bg-white/80 p-4 rounded-xl backdrop-blur-sm shadow-sm border border-slate-100">
                           <ImageIcon className="mx-auto h-12 w-12 text-slate-400" />
                           <div className="mt-4 flex text-sm leading-6 text-slate-600 justify-center">
-                            <label className="relative cursor-pointer rounded-md bg-white font-semibold text-[#ffb703] px-3 py-1 shadow-sm focus-within:ring-2 focus-within:ring-[#ffb703] hover:text-[#ffb703]">
-                              <span>{uploadingImage ? 'Uploading...' : 'Upload Image'}</span>
-                              <input type="file" className="sr-only" onChange={handleImageUpload} accept="image/*" disabled={uploadingImage} />
+                            <label className="relative cursor-pointer rounded-md bg-[#ffb703] font-semibold text-[#03071e] px-4 py-2 shadow-sm focus-within:ring-2 focus-within:ring-[#ffb703] hover:bg-[#ffb703]/90 transition-colors">
+                              <span>{uploadingImage ? 'Uploading...' : 'Upload Images'}</span>
+                              <input type="file" multiple className="sr-only" onChange={handleImageUpload} accept="image/*" disabled={uploadingImage} />
                             </label>
                           </div>
+                          <p className="text-xs text-slate-500 mt-2">PNG, JPG up to 5MB</p>
                         </div>
                       </div>
                     </div>
